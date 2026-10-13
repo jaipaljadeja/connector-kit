@@ -11,7 +11,7 @@ import { RuntimeConfigError } from "./error";
 export type TableBinding = TableIdentifier & { readonly location?: string | undefined };
 
 export type ResolvedTableBindings<Connector extends ConnectorDefinition> = Readonly<
-  Record<ResourceName<Connector["resources"]>, TableBinding>
+  Partial<Record<ResourceName<Connector["resources"]>, TableBinding>>
 >;
 
 const TableIdentifierSchema = Schema.Struct({
@@ -30,7 +30,7 @@ const asError = (cause: unknown): Error =>
 const fail = (code: "TABLE_BINDINGS_INVALID" | "TABLE_BINDINGS_MISMATCH", message: string) =>
   new RuntimeConfigError({ code, message, cause: new Error(message) });
 
-/** Reads hosted table bindings and checks they match the connector. */
+/** Reads hosted table bindings and checks they name resources of the connector. */
 export const loadTableBindings = <const Connector extends ConnectorDefinition>(
   connector: Connector,
 ): Effect.Effect<ResolvedTableBindings<Connector>, RuntimeConfigError> =>
@@ -59,18 +59,22 @@ export const loadTableBindings = <const Connector extends ConnectorDefinition>(
       ),
     );
 
-    // Bindings come from the platform, resources from the connector. If they disagree,
-    // one of them is out of date and we could write to the wrong table.
-    const expected = new Set(connector.resources.map((resource) => resource.name));
     const actual = Object.keys(decoded);
-    const missing = [...expected].filter((name) => !Object.hasOwn(decoded, name));
-    const unknown = actual.filter((name) => !expected.has(name));
+    if (actual.length === 0) {
+      return yield* Effect.fail(
+        fail("TABLE_BINDINGS_INVALID", "Hosted table bindings name no resources"),
+      );
+    }
 
-    if (missing.length > 0 || unknown.length > 0) {
+    // Bindings come from the platform, resources from the connector. An unknown name
+    // means one of them is out of date, and we could write to the wrong table.
+    const expected = new Set(connector.resources.map((resource) => resource.name));
+    const unknown = actual.filter((name) => !expected.has(name));
+    if (unknown.length > 0) {
       return yield* Effect.fail(
         fail(
           "TABLE_BINDINGS_MISMATCH",
-          `Hosted table bindings do not match connector resources (missing: ${missing.join(", ") || "none"}; unknown resources: ${unknown.length})`,
+          `Hosted table bindings name resources the connector doesn't have (${unknown.length})`,
         ),
       );
     }

@@ -104,6 +104,58 @@ const runtimeLayer = (
 ) => Layer.mergeAll(stateStoreLayer, ingestorLayer);
 
 describe("resource ingestion engine", () => {
+  it.effect("runs only the resources the ingestor has tables for", () =>
+    Effect.gen(function* () {
+      const products = Resource.entity({
+        name: "products",
+        rowSchema: TestRowSchema,
+        key: "id",
+        version: "updatedAt",
+        check: Effect.void,
+        backfill: Fetch.page({
+          pageCursor: Cursor.string(),
+          cutoff: Cursor.isoDateTime(),
+          fetch: () => Effect.succeed({ rows: [], hasMore: false }),
+        }),
+      });
+      const orders = Resource.entity({
+        name: "orders",
+        rowSchema: TestRowSchema,
+        key: "id",
+        version: "updatedAt",
+        check: Effect.void,
+        backfill: Fetch.page({
+          pageCursor: Cursor.string(),
+          cutoff: Cursor.isoDateTime(),
+          fetch: () => Effect.die("orders backfill ran"),
+        }),
+        changes: Fetch.changes({
+          cursor: Cursor.string(),
+          fetch: () => Effect.die("orders changes ran"),
+        }),
+      });
+      const connector = Connector.define({ name: "test", resources: [products, orders] });
+      const ingestedRef = yield* Ref.make<ReadonlyArray<IngestOptions>>([]);
+
+      // Orders has changes, so `run` only returns because it never starts them.
+      yield* run(connector, { initialCutoff: "2026-01-01T00:00:00Z" }).pipe(
+        Effect.provide(
+          runtimeLayer(
+            StateStoreLayerMemory,
+            Layer.succeed(Ingestor)({
+              resourceNames: ["products"],
+              ingest: (options) => Ref.update(ingestedRef, (ingested) => [...ingested, options]),
+            }),
+          ),
+        ),
+      );
+
+      expect((yield* Ref.get(ingestedRef)).map((options) => options.resource)).toEqual([
+        "products",
+      ]);
+    }),
+  );
+
   it.effect("checkpoints backfill only after successful ingestion", () =>
     Effect.gen(function* () {
       const row: TestRow = { id: "p1", updatedAt: "2026-01-01T00:00:00Z", value: "one" };

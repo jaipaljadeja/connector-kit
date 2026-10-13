@@ -13,7 +13,7 @@ import * as RuntimeConfig from "../runtime-config";
 import { makeRowEncoder, type RowEncoder } from "./arrow";
 import { Ingestor, type IngestorService } from "./service";
 
-/** One catalog and an Iceberg table for each resource. */
+/** One catalog and an Iceberg table for each resource that runs. */
 export type WingsIngestorConfig<Connector extends ConnectorDefinition = ConnectorDefinition> = {
   readonly connector: Connector;
   readonly catalog: string;
@@ -33,7 +33,7 @@ type PreparedTable = {
 
 const connectorError = (message: string, cause?: unknown) => new ConnectorError({ message, cause });
 
-/** Loads each table schema and opens one Wings stream per resource. */
+/** Loads each table schema and opens one Wings stream per bound resource. */
 export const layerWings = <const Connector extends ConnectorDefinition>(
   config: WingsIngestorConfig<Connector>,
 ): Layer.Layer<Ingestor, ConnectorError, Wings.CatalogManager.CatalogManager> =>
@@ -44,17 +44,12 @@ export const layerWings = <const Connector extends ConnectorDefinition>(
         .getIcebergCatalog(config.catalog)
         .pipe(Effect.mapError((cause) => connectorError("Failed to load Wings catalog", cause)));
 
-      // `tables` only covers every resource when the connector type is const,
-      // so a binding can be missing.
       const bindings: Partial<Record<string, RuntimeConfig.TableBinding>> = config.tables;
 
       const prepared: Array<PreparedTable> = [];
       for (const resource of config.connector.resources) {
         const binding = bindings[resource.name];
-
-        if (!binding) {
-          return yield* Effect.fail(connectorError(`Missing table binding for ${resource.name}`));
-        }
+        if (!binding) continue;
 
         const { namespace, name, location } = binding;
         const identifier = { namespace, name };
@@ -100,6 +95,7 @@ export const layerWings = <const Connector extends ConnectorDefinition>(
       }
 
       const service: IngestorService = {
+        resourceNames: prepared.map(({ resource }) => resource),
         ingest: ({ resource, batch }) => {
           const entry = entries.get(resource);
 

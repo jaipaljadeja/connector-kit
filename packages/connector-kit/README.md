@@ -84,6 +84,9 @@ read across runs.
 Each resource in the feed stores the feed cursor, so status shows it per
 resource. A resource in the feed cannot also define its own `changes`.
 
+`fetch` also gets `selected`, the resources that run. Skip the work for the
+others.
+
 Changes and webhooks may return partial rows, but the key and version are
 required. Missing, `undefined`, and `null` values do not update stored columns.
 For tables that support deletion, send `_deleted: true` for deletes. When the
@@ -110,6 +113,9 @@ hosted run, use `RuntimeConfig.layerHosted()`, PostgreSQL state, and
 ```env
 AIRFOIL_TABLE_BINDINGS={"posts":{"namespace":["default"],"name":"posts","location":"s3://warehouse/default/posts"}}
 ```
+
+Only the resources in `AIRFOIL_TABLE_BINDINGS` run. List at least one, and use
+only the connector's resource names.
 
 Use only lowercase letters, numbers, and underscores in table names. S3 Tables
 catalogs reject other characters, such as `-`.

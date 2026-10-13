@@ -75,14 +75,21 @@ describe("hosted table bindings", () => {
     }),
   );
 
-  it.effect("rejects malformed, incomplete, unknown, and unsafe bindings", () =>
+  it.effect("binds only some resources", () =>
+    Effect.gen(function* () {
+      const bindings = yield* load(
+        JSON.stringify({ products: { namespace: ["default"], name: "products" } }),
+      );
+
+      expect(Object.keys(bindings)).toEqual(["products"]);
+    }),
+  );
+
+  it.effect("rejects malformed, empty, unknown, and unsafe bindings", () =>
     Effect.gen(function* () {
       const cases = [
         ["not-json", "TABLE_BINDINGS_INVALID"],
-        [
-          JSON.stringify({ products: { namespace: ["default"], name: "products" } }),
-          "TABLE_BINDINGS_MISMATCH",
-        ],
+        ["{}", "TABLE_BINDINGS_INVALID"],
         [
           JSON.stringify({
             products: { namespace: ["default"], name: "products" },

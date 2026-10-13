@@ -24,11 +24,13 @@ const TestPayloadSchema = Schema.Struct({
 const makeIngestorLayer = (
   ingestedRef: Ref.Ref<ReadonlyArray<IngestOptions>>,
   expectedIngestions = 0,
+  resourceNames?: ReadonlyArray<string>,
 ) =>
   Effect.gen(function* () {
     const done = yield* Deferred.make<void>();
     let count = 0;
     const layer = Layer.succeed(Ingestor)({
+      resourceNames,
       ingest: (options) =>
         Ref.update(ingestedRef, (ingested) => [...ingested, options]).pipe(
           Effect.tap(() =>
@@ -419,6 +421,76 @@ describe("webhook server", () => {
         const metricsBody = yield* metricsResponse.text;
         expect(metricsBody).toContain("airfoil_connector_batch_size");
         expect(metricsBody).toContain('source="webhook"');
+      }).pipe(
+        Effect.provide(Layer.mergeAll(StateStoreLayerMemory, layer, NodeHttpServer.layerTest)),
+      );
+    }).pipe(Effect.scoped),
+  );
+  it.effect("skips unselected resources in webhooks and status", () =>
+    Effect.gen(function* () {
+      const makeResource = <const Name extends string>(
+        name: Name,
+        handler: (
+          payload: typeof TestPayloadSchema.Type,
+        ) => Effect.Effect<ReadonlyArray<typeof TestPayloadSchema.Type>>,
+      ) =>
+        Resource.entity({
+          name,
+          rowSchema: TestRowSchema,
+          key: "id",
+          version: "updatedAt",
+          check: Effect.void,
+          webhook: { schema: TestPayloadSchema, handler: ({ payload }) => handler(payload) },
+        });
+      const Products = makeResource("products", (payload) => Effect.succeed([payload]));
+      const Orders = makeResource("orders", () => Effect.die("orders handler ran"));
+      const route = Webhook.route({
+        path: "/webhooks/test",
+        ackMode: "after-ingest",
+        schema: TestPayloadSchema,
+        handler: ({ payload, to }) =>
+          to(Products, payload).pipe(
+            Effect.andThen(to(Orders, payload)),
+            Effect.as(HttpServerResponse.jsonUnsafe({ ok: true })),
+          ),
+      });
+      const connector = Connector.define({
+        name: "test",
+        resources: [Products, Orders],
+        webhooks: [route],
+      });
+      const ingestedRef = yield* Ref.make<ReadonlyArray<IngestOptions>>([]);
+      const { done, layer } = yield* makeIngestorLayer(ingestedRef, 1, ["products"]);
+
+      yield* Effect.gen(function* () {
+        yield* startConnector(connector);
+        const client = yield* HttpClient.HttpClient;
+        const response = yield* client.execute(
+          HttpClientRequest.post("/webhooks/test").pipe(
+            HttpClientRequest.bodyJsonUnsafe({ id: "p1", updatedAt: "2026-01-01T00:00:00.000Z" }),
+          ),
+        );
+        yield* Deferred.await(done);
+        const status = yield* client.execute(HttpClientRequest.get("/status"));
+        const body = yield* Schema.decodeUnknownEffect(Status.StatusResponseSchema)(
+          yield* status.json,
+        );
+
+        expect({
+          webhook: response.status,
+          ingested: (yield* Ref.get(ingestedRef)).map((options) => options.resource),
+          status: body.resources.map((resource) => resource.name),
+        }).toMatchInlineSnapshot(`
+          {
+            "ingested": [
+              "products",
+            ],
+            "status": [
+              "products",
+            ],
+            "webhook": 200,
+          }
+        `);
       }).pipe(
         Effect.provide(Layer.mergeAll(StateStoreLayerMemory, layer, NodeHttpServer.layerTest)),
       );

@@ -175,7 +175,10 @@ describe.skipIf(!canRun)("Stripe API (vcr)", () => {
       );
       const feed = yield* Effect.fromOption(Option.fromNullishOr(connector.changes));
 
-      const result = yield* feed.fetch({ cursor: "2026-10-03T15:00:00.000Z" });
+      const result = yield* feed.fetch({
+        cursor: "2026-10-03T15:00:00.000Z",
+        selected: new Set(feed.resources.map((resource) => resource.name)),
+      });
 
       expect({
         cursor: result.cursor,

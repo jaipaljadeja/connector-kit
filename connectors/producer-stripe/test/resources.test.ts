@@ -35,11 +35,11 @@ const getResource = (name: ResourceName, fake: FakeStripe) =>
     );
     const backfill = yield* Effect.fromOption(Option.fromNullishOr(resource.backfill));
     const feed = yield* Effect.fromOption(Option.fromNullishOr(connector.changes));
-    // The feed covers every resource. Tests look at this resource's rows.
+    // Only this resource runs, so the feed returns only its rows.
     const changes = {
       fetch: (input: { readonly cursor: string }) =>
         feed
-          .fetch(input)
+          .fetch({ ...input, selected: new Set([name]) })
           .pipe(Effect.map((result) => ({ ...result, rows: result.rows[name] ?? [] }))),
     };
     return { backfill, changes, requests };

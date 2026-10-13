@@ -33,8 +33,9 @@ it.
 
 Changes use one Connector Kit feed (`Fetch.feed` in `connector.ts`). Stripe
 filters on at most 20 event types and we use more, so the feed reads every
-event and routes it by type. Some events have no object ID, such as
-`invoice.upcoming`, so only events a resource handles must have one.
+event and routes it by type. Resources that aren't selected skip their object
+fetches. Some events have no object ID, such as `invoice.upcoming`, so only
+events a resource handles must have one.
 
 The feed reads fixed time windows that start five minutes early. A run reads up
 to 20 pages, saves the window end and last event in the cursor, and sets

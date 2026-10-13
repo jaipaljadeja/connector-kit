@@ -20,11 +20,11 @@ const getCustomers = (fake: FakeStripe) =>
     );
     const backfill = yield* Effect.fromOption(Option.fromNullishOr(resource.backfill));
     const feed = yield* Effect.fromOption(Option.fromNullishOr(connector.changes));
-    // The feed covers every resource. Tests look at this resource's rows.
+    // Only this resource runs, so the feed returns only its rows.
     const changes = {
       fetch: (input: { readonly cursor: string }) =>
         feed
-          .fetch(input)
+          .fetch({ ...input, selected: new Set(["customers"]) })
           .pipe(Effect.map((result) => ({ ...result, rows: result.rows["customers"] ?? [] }))),
     };
     return { connector, resource, backfill, changes, requests };
@@ -189,6 +189,28 @@ describe("customers", () => {
           ],
         }
       `);
+    }),
+  );
+
+  it.effect("makes no calls for resources that aren't selected", () =>
+    Effect.gen(function* () {
+      yield* TestClock.setTime(now);
+      const { changes, requests } = yield* getCustomers({
+        list: () => ({
+          data: [
+            event({ id: "evt_2", type: "product.updated", objectId: "prod_1" }),
+            event({ id: "evt_1", type: "customer.updated", objectId: "cus_1" }),
+          ],
+          has_more: false,
+        }),
+        objects: { "customers/cus_1": customer },
+      });
+
+      yield* changes.fetch({ cursor: "2026-10-03T11:00:00.000Z" });
+
+      expect((yield* Ref.get(requests)).filter((request) => !request.startsWith("events"))).toEqual(
+        ["customers/cus_1"],
+      );
     }),
   );
 
