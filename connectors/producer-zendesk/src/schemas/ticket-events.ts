@@ -1,0 +1,97 @@
+import { Schema } from "effect";
+
+import { TicketEventSchema } from "./comments";
+import { Long, TextOrJson, Timestamp, deleted, field } from "./shared";
+
+export const TicketFieldChangeSchema = Schema.Struct({
+  id: Long.pipe(field(1, "Change ID.")),
+  version: Schema.Date.pipe(field(2, "Time of the ticket update.")),
+  ticket_id: Long.pipe(field(3, "Ticket that changed.")),
+  updater_id: Long.pipe(field(4, "User who made the update. -1 for Zendesk itself.")),
+  event_type: Schema.String.pipe(field(5, "Create for the first value, or Change.")),
+  field_name: Schema.String.pipe(
+    field(6, "Field that changed, such as status, or a custom field ID from `ticket_fields`."),
+  ),
+  value: Schema.NullOr(Schema.String).pipe(field(7, "New value. Lists are JSON.")),
+  previous_value: Schema.NullOr(Schema.String).pipe(
+    field(8, "Value before the change. Empty for Create and for tags."),
+  ),
+  via: Schema.String.pipe(field(9, "What made the change, such as Web form or Rule.")),
+}).annotate({ description: "Every change to a Zendesk ticket field, one row per field." });
+
+export type TicketFieldChange = Schema.Schema.Type<typeof TicketFieldChangeSchema>;
+
+export const isFieldChangeEvent = Schema.is(
+  Schema.Struct({ event_type: Schema.Literals(["Create", "Change"]) }),
+);
+
+/** The changed field is the one key left over, named after the field. */
+export const FieldChangeEventSchema = Schema.StructWithRest(
+  Schema.Struct({
+    id: Long,
+    via: Schema.String,
+    event_type: Schema.String,
+    previous_value: Schema.optional(TextOrJson),
+  }),
+  [Schema.Record(Schema.String, Schema.Unknown)],
+);
+
+export type FieldChangeEvent = Schema.Schema.Type<typeof FieldChangeEventSchema>;
+
+export const TicketAuditSchema = TicketEventSchema.mapFields((fields) => ({
+  ...fields,
+  updater_id: Long,
+}));
+
+export type TicketAudit = Schema.Schema.Type<typeof TicketAuditSchema>;
+
+export const TicketMetricEventSchema = Schema.Struct({
+  id: Long.pipe(field(1, "Event ID.")),
+  version: Schema.Date.pipe(field(2, "Time of the event.")),
+  _deleted: deleted(3, "ticket"),
+  ticket_id: Schema.NullOr(Long).pipe(field(4, "Ticket the event is on.")),
+  metric: Schema.String.pipe(
+    field(5, "Metric, such as reply_time, agent_work_time, or resolution_time."),
+  ),
+  instance_id: Long.pipe(field(6, "Which run of the metric. Reply time counts each reply.")),
+  type: Schema.String.pipe(
+    field(7, "activate, pause, fulfill, apply_sla, breach, update_status, measure, and others."),
+  ),
+  time: Timestamp.pipe(field(8, "Time of the event.")),
+  sla_policy_id: Schema.NullOr(Long).pipe(field(9, "SLA policy, on apply_sla events.")),
+  sla_target_in_seconds: Schema.NullOr(Long).pipe(field(10, "SLA target, on apply_sla events.")),
+  sla_business_hours: Schema.NullOr(Schema.Boolean).pipe(
+    field(11, "Whether the SLA target counts business hours."),
+  ),
+  status_calendar: Schema.NullOr(Long).pipe(
+    field(12, "Minutes so far in calendar time, on update_status events."),
+  ),
+  status_business: Schema.NullOr(Long).pipe(
+    field(13, "Minutes so far in business hours, on update_status events."),
+  ),
+}).annotate({
+  description:
+    "Zendesk ticket metric events: SLA targets and breaches, and each step of reply and resolution times.",
+});
+
+export type TicketMetricEvent = Schema.Schema.Type<typeof TicketMetricEventSchema>;
+
+export const TicketMetricEventObjectSchema = Schema.Struct({
+  id: Long,
+  ticket_id: Schema.NullOr(Long),
+  metric: Schema.String,
+  instance_id: Long,
+  type: Schema.String,
+  time: Timestamp,
+  deleted: Schema.Boolean,
+  sla: Schema.optional(
+    Schema.Struct({
+      target_in_seconds: Long,
+      business_hours: Schema.Boolean,
+      policy: Schema.Struct({ id: Long }),
+    }),
+  ),
+  status: Schema.optional(Schema.Struct({ calendar: Long, business: Long })),
+});
+
+export type TicketMetricEventObject = Schema.Schema.Type<typeof TicketMetricEventObjectSchema>;
