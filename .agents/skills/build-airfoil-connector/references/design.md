@@ -113,7 +113,7 @@ recover missed events.
 
 When one events API covers several resources, use one connector-level
 `Fetch.feed` instead of `changes` on each resource, so the connector polls it
-once.
+once. Skip the work for resources that aren't in `selected`.
 
 ## Deletes
 

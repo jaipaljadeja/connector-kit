@@ -1,4 +1,4 @@
-import { Connector, Cursor, Fetch } from "@useairfoil/connector-kit";
+import { Connector, Cursor, Fetch, type ResourceDefinition } from "@useairfoil/connector-kit";
 import { Config, Context, Effect, Layer, Redacted } from "effect";
 
 import type { StripeConfig } from "./manifest";
@@ -36,18 +36,25 @@ export const make = Effect.fnUntraced(function* (config: StripeConfig) {
       resources: [Customers, Products, Prices, Subscriptions, Invoices, Charges, Refunds],
       cursor: Cursor.string(),
       interval: changesInterval,
-      fetch: ({ cursor }) =>
+      fetch: ({ cursor, selected }) =>
         Effect.gen(function* () {
           const window = yield* readEventWindow(client, String(cursor));
+          const when = <A, E>(
+            resource: ResourceDefinition,
+            rows: Effect.Effect<ReadonlyArray<A>, E>,
+          ) => (selected.has(resource.name) ? rows : Effect.succeed([]));
           const rows = yield* Effect.all(
             {
-              customers: rowsForWindow(client, customerSpec, window.events),
-              products: rowsForWindow(client, productSpec, window.events),
-              prices: rowsForWindow(client, priceSpec, window.events),
-              subscriptions: rowsForWindow(client, subscriptionSpec, window.events),
-              invoices: rowsForWindow(client, invoiceSpec, window.events),
-              charges: rowsForWindow(client, chargeSpec, window.events),
-              refunds: rowsForWindow(client, refundSpec, window.events),
+              customers: when(Customers, rowsForWindow(client, customerSpec, window.events)),
+              products: when(Products, rowsForWindow(client, productSpec, window.events)),
+              prices: when(Prices, rowsForWindow(client, priceSpec, window.events)),
+              subscriptions: when(
+                Subscriptions,
+                rowsForWindow(client, subscriptionSpec, window.events),
+              ),
+              invoices: when(Invoices, rowsForWindow(client, invoiceSpec, window.events)),
+              charges: when(Charges, rowsForWindow(client, chargeSpec, window.events)),
+              refunds: when(Refunds, rowsForWindow(client, refundSpec, window.events)),
             },
             { concurrency: "unbounded" },
           );

@@ -170,15 +170,29 @@ describe("Wings ingestor adapter", () => {
     }),
   );
 
-  it.effect("fails for invalid bindings and missing current schemas", () =>
+  it.effect("opens tables only for bound resources", () =>
     Effect.gen(function* () {
       const refs = yield* makeTest;
-      const missingBinding = yield* Ingestor.pipe(
-        Effect.provide(layerWings({ connector, catalog: "default-catalog", tables: {} as never })),
+      const Orders = Resource.entity({ ...Products, name: "orders" });
+      const ingestor = yield* Ingestor.pipe(
+        Effect.provide(
+          layerWings({
+            connector: Connector.define({ name: "test", resources: [Products, Orders] }),
+            catalog: "default-catalog",
+            tables: { products: identifier },
+          }),
+        ),
         Effect.provide(makeManagerLayer(refs)),
-        Effect.flip,
       );
 
+      expect(ingestor.resourceNames).toEqual(["products"]);
+      expect((yield* Ref.get(refs.opened)).map((options) => options.table)).toEqual(["products"]);
+    }),
+  );
+
+  it.effect("fails for missing current schemas", () =>
+    Effect.gen(function* () {
+      const refs = yield* makeTest;
       const missingSchema = yield* useIngestor(refs, () => Effect.void, {
         metadata: tableMetadata(),
       }).pipe(Effect.flip);
@@ -189,7 +203,6 @@ describe("Wings ingestor adapter", () => {
         }),
       }).pipe(Effect.flip);
 
-      expect(missingBinding.message).toContain("Missing table binding");
       expect(missingSchema.message).toContain("no current schema");
       expect(missingVersion.message).toContain("Table schema does not match");
     }),

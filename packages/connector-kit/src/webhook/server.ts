@@ -51,12 +51,14 @@ const makeRouteContext = (
   rawBody: Uint8Array,
   payload: unknown,
   batches: Array<QueuedWebhookBatch>,
+  resourceNames: ReadonlyArray<string>,
 ): WebhookRouteContext<ReadonlyArray<ResourceDefinition>, unknown> => ({
   request,
   rawBody,
   payload,
   to: (resource, payload) =>
     Effect.gen(function* () {
+      if (!resourceNames.includes(resource.name)) return;
       if (!resource.webhook) {
         return yield* Effect.fail(
           new ConnectorError({
@@ -115,7 +117,13 @@ const parseJson = (rawBody: Uint8Array) =>
     catch: (cause) => new ConnectorError({ message: "Invalid webhook JSON", cause }),
   });
 
-const makeHandler = (route: WebhookRoute, options: { readonly connectorName: string }) =>
+type RouterOptions = {
+  readonly connectorName: string;
+  /** Events for other resources are skipped. */
+  readonly resourceNames: ReadonlyArray<string>;
+};
+
+const makeHandler = (route: WebhookRoute, options: RouterOptions) =>
   Effect.gen(function* () {
     const request = yield* HttpServerRequest.HttpServerRequest;
     const collected: Array<QueuedWebhookBatch> = [];
@@ -170,7 +178,15 @@ const makeHandler = (route: WebhookRoute, options: { readonly connectorName: str
 
     const response = yield* Effect.withSpan(
       route
-        .handler(makeRouteContext(request, rawBodyResult.value, payloadResult.value, collected))
+        .handler(
+          makeRouteContext(
+            request,
+            rawBodyResult.value,
+            payloadResult.value,
+            collected,
+            options.resourceNames,
+          ),
+        )
         .pipe(Effect.tapError((error) => annotateError("webhook_handle", error))),
       SpanName.webhookHandle,
       { attributes: { [Attr.webhookPath]: route.path } },
@@ -227,10 +243,7 @@ const makeHandler = (route: WebhookRoute, options: { readonly connectorName: str
     ),
   );
 
-export const router = (
-  routes: ReadonlyArray<WebhookRoute>,
-  options: { readonly connectorName: string },
-) =>
+export const router = (routes: ReadonlyArray<WebhookRoute>, options: RouterOptions) =>
   HttpRouter.addAll(
     routes.map((route) => HttpRouter.route("POST", route.path, makeHandler(route, options))),
   );

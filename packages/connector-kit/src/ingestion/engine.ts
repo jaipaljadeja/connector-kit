@@ -1,4 +1,4 @@
-import { DateTime, Effect, Layer, Queue } from "effect";
+import { Array as Arr, DateTime, Effect, Layer, Order, Queue } from "effect";
 import { HttpRouter, type HttpServer, HttpServerResponse } from "effect/http";
 import * as Observability from "effect/observability";
 
@@ -56,35 +56,58 @@ export function run<const Resources extends ReadonlyArray<ResourceDefinition>>(
   connector: ConnectorDefinition<Resources>,
   options: RunWebhookOptions,
 ): Effect.Effect<void, ConnectorError, StateStore | Ingestor | HttpServer.HttpServer>;
-export function run(connector: ConnectorDefinition, options?: RunOptions) {
-  const queueLayer = makeWebhookQueueLayer(connector.name);
-  const runtimeLayer = options?.webhook
-    ? Layer.mergeAll(
-        queueLayer,
-        makeWebhookServerLayer(connector, options.webhook).pipe(Layer.provide(queueLayer)),
-      )
-    : Layer.empty;
-
+export function run(definition: ConnectorDefinition, options?: RunOptions) {
   return Effect.gen(function* () {
-    const initialCutoff =
-      options?.initialCutoff ?? (yield* DateTime.now.pipe(Effect.map(DateTime.formatIso)));
-    yield* Effect.logInfo("Connector started").pipe(
-      Effect.annotateLogs({
-        [Attr.connectorName]: connector.name,
-        resources: connector.resources.length,
-      }),
-    );
+    // Check the whole feed, even the resources that don't run.
+    if (definition.changes) yield* validateFeed(definition, definition.changes);
+    const ingestor = yield* Ingestor;
+    const connector = selectResources(definition, ingestor.resourceNames);
+    const queueLayer = makeWebhookQueueLayer(connector.name);
+    const runtimeLayer = options?.webhook
+      ? Layer.mergeAll(
+          queueLayer,
+          makeWebhookServerLayer(connector, options.webhook).pipe(Layer.provide(queueLayer)),
+        )
+      : Layer.empty;
 
-    const sourceRun = runIngestion(connector, initialCutoff);
-    const webhookRun = options?.webhook
-      ? runWebhookRuntime(connector, options.webhook.routes)
-      : Effect.void;
+    return yield* Effect.gen(function* () {
+      const initialCutoff =
+        options?.initialCutoff ?? (yield* DateTime.now.pipe(Effect.map(DateTime.formatIso)));
+      yield* Effect.logInfo("Connector started").pipe(
+        Effect.annotateLogs({
+          [Attr.connectorName]: connector.name,
+          resources: connector.resources.length,
+        }),
+      );
 
-    return yield* Effect.all([sourceRun, webhookRun], { concurrency: "unbounded" }).pipe(
-      Effect.asVoid,
-    );
-  }).pipe(Effect.provide(runtimeLayer));
+      const sourceRun = runIngestion(connector, initialCutoff);
+      const webhookRun = options?.webhook
+        ? runWebhookRuntime(connector, options.webhook.routes)
+        : Effect.void;
+
+      return yield* Effect.all([sourceRun, webhookRun], { concurrency: "unbounded" }).pipe(
+        Effect.asVoid,
+      );
+    }).pipe(Effect.provide(runtimeLayer));
+  });
 }
+
+const selectResources = (
+  connector: ConnectorDefinition,
+  names: ReadonlyArray<string> | undefined,
+): ConnectorDefinition => {
+  if (names === undefined) return connector;
+  const isSelected = (resource: ResourceDefinition) => names.includes(resource.name);
+  const { changes, ...rest } = connector;
+  const feedResources = changes?.resources.filter(isSelected) ?? [];
+  return {
+    ...rest,
+    resources: connector.resources.filter(isSelected),
+    ...(changes && feedResources.length > 0
+      ? { changes: { ...changes, resources: feedResources } }
+      : {}),
+  };
+};
 
 const makeWebhookQueueLayer = (connector: string): Layer.Layer<WebhookQueue> =>
   Layer.effect(WebhookQueue)(
@@ -135,7 +158,10 @@ const makeWebhookServerLayer = (
   const metricsPath = options.metricsPath === undefined ? "/metrics" : options.metricsPath;
   const statusPath = options.statusPath === undefined ? "/status" : options.statusPath;
   const app = Layer.mergeAll(
-    router(options.routes, { connectorName: connector.name }),
+    router(options.routes, {
+      connectorName: connector.name,
+      resourceNames: connector.resources.map((resource) => resource.name),
+    }),
     HttpRouter.add("GET", healthPath, Effect.succeed(HttpServerResponse.text("ok"))),
     ...(metricsPath === false
       ? []
@@ -154,8 +180,6 @@ const runIngestion = (
 ): Effect.Effect<void, ConnectorError, StateStore | Ingestor> =>
   Effect.gen(function* () {
     const feed = connector.changes;
-    if (feed) yield* validateFeed(connector, feed);
-
     yield* Effect.all(
       [
         Effect.forEach(
@@ -168,6 +192,11 @@ const runIngestion = (
       { concurrency: "unbounded" },
     );
   });
+
+const bySavedAt = Order.mapInput(
+  Order.String,
+  (state: NonNullable<ResourceState["changes"]>) => state.lastSuccessAt ?? "",
+);
 
 const validateFeed = (connector: ConnectorDefinition, feed: ChangesFeed) =>
   Effect.forEach(feed.resources, (member, index) => {
@@ -483,7 +512,8 @@ const runChanges = Effect.fnUntraced(function* (
 });
 
 // Every member resource stores the feed cursor. All rows are ingested before any
-// cursor is written, so after a crash any member's cursor is safe to resume from.
+// cursor is written. If a crash stops the writes partway, the next run starts
+// from the oldest cursor.
 const runChangesFeed = (
   connector: ConnectorDefinition,
   feed: ChangesFeed,
@@ -492,6 +522,7 @@ const runChangesFeed = (
   Effect.gen(function* () {
     const store = yield* StateStore;
     const members = feed.resources;
+    const selected = new Set(members.map((resource) => resource.name));
     // Any failure stops the whole feed, so it is an error for every resource in it.
     const recordFeedError =
       (operation: StateOperation) =>
@@ -514,9 +545,13 @@ const runChangesFeed = (
       const states = yield* Effect.forEach(members, (resource) =>
         store.getResourceState(resource.name),
       );
-      // A resource added later has no cursor yet, so resume from one that has.
-      const cursor = states.find((state) => state?.changes)?.changes?.cursor ?? initialCutoff;
-      const result = yield* feed.fetch({ cursor }).pipe(recordFeedError("fetch"));
+      // A resource that was off has an older cursor. Resume from the oldest, so it
+      // gets the changes it missed. The others read some changes again.
+      const saved = states.flatMap((state) => (state?.changes ? [state.changes] : []));
+      const cursor = Arr.isReadonlyArrayNonEmpty(saved)
+        ? Arr.min(saved, bySavedAt).cursor
+        : initialCutoff;
+      const result = yield* feed.fetch({ cursor, selected }).pipe(recordFeedError("fetch"));
 
       yield* Effect.forEach(
         members,

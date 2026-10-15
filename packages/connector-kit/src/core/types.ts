@@ -281,6 +281,8 @@ export type ChangesFeed<
   readonly interval?: Duration.Input;
   readonly fetch: (input: {
     readonly cursor: Cursor.Value;
+    /** The resources that run. Skip the work for the others. */
+    readonly selected: ReadonlySet<string>;
   }) => Effect.Effect<FetchFeedResult<Resources>, ConnectorError, R>;
 };
 

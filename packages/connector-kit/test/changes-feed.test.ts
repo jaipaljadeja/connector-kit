@@ -25,13 +25,21 @@ const makeResource = <const Name extends string>(name: Name) =>
 const Products = makeResource("products");
 const Orders = makeResource("orders");
 
-const ingestorLayer = (ingested: Ref.Ref<ReadonlyArray<IngestOptions>>) =>
+const ingestorLayer = (
+  ingested: Ref.Ref<ReadonlyArray<IngestOptions>>,
+  resourceNames?: ReadonlyArray<string>,
+) =>
   Layer.succeed(Ingestor)({
+    resourceNames,
     ingest: (options) => Ref.update(ingested, (current) => [...current, options]),
   });
 
 // Runs the connector until `done` resolves, then returns ingests and state.
-const runUntil = <A>(connector: Parameters<typeof run>[0], done: Deferred.Deferred<A>) =>
+const runUntil = <A>(
+  connector: Parameters<typeof run>[0],
+  done: Deferred.Deferred<A>,
+  resourceNames?: ReadonlyArray<string>,
+) =>
   Effect.gen(function* () {
     const ingested = yield* Ref.make<ReadonlyArray<IngestOptions>>([]);
     return yield* Effect.gen(function* () {
@@ -59,7 +67,7 @@ const runUntil = <A>(connector: Parameters<typeof run>[0], done: Deferred.Deferr
       };
     }).pipe(
       Effect.scoped,
-      Effect.provide(Layer.mergeAll(StateStoreLayerMemory, ingestorLayer(ingested))),
+      Effect.provide(Layer.mergeAll(StateStoreLayerMemory, ingestorLayer(ingested, resourceNames))),
     );
   });
 
@@ -115,6 +123,48 @@ describe("changes feed", () => {
               "rows": [],
               "source": "changes",
             },
+          ],
+        }
+      `);
+    }),
+  );
+
+  it.effect("fetches and ingests only the selected resources", () =>
+    Effect.gen(function* () {
+      const selected = yield* Deferred.make<ReadonlyArray<string>>();
+      const connector = Connector.define({
+        name: "test",
+        resources: [Products, Orders],
+        changes: Fetch.feed({
+          resources: [Products, Orders],
+          cursor: Cursor.string(),
+          fetch: (input) =>
+            Deferred.succeed(selected, [...input.selected]).pipe(
+              Effect.as({
+                cursor: "next",
+                rows: {
+                  products: [{ id: "p1", updatedAt: "2026-01-01T00:01:00Z" }],
+                  orders: [{ id: "o1", updatedAt: "2026-01-01T00:01:00Z" }],
+                },
+              }),
+            ),
+        }),
+      });
+
+      const result = yield* runUntil(connector, selected, ["products"]);
+
+      expect({
+        selected: yield* Deferred.await(selected),
+        ingested: result.ingests.map((ingest) => ingest.resource),
+        ordersState: result.state.orders,
+      }).toMatchInlineSnapshot(`
+        {
+          "ingested": [
+            "products",
+          ],
+          "ordersState": undefined,
+          "selected": [
+            "products",
           ],
         }
       `);
@@ -322,6 +372,63 @@ describe("changes feed", () => {
       );
 
       expect(cursor).toMatchInlineSnapshot(`"saved-cursor"`);
+    }),
+  );
+
+  it.effect("resumes from the oldest cursor when a resource fell behind", () =>
+    Effect.gen(function* () {
+      const fetched = yield* Deferred.make<CursorTypes.Value>();
+      const connector = Connector.define({
+        name: "test",
+        resources: [Products, Orders],
+        changes: Fetch.feed({
+          resources: [Products, Orders],
+          cursor: Cursor.string(),
+          fetch: ({ cursor }) =>
+            Deferred.succeed(fetched, cursor).pipe(Effect.andThen(Effect.never)),
+        }),
+      });
+
+      const result = yield* Effect.gen(function* () {
+        const store = yield* StateStore;
+        // Orders wasn't selected while products moved on.
+        yield* store.setChangesState("products", {
+          cursor: "t2",
+          lastSuccessAt: "2026-01-02T00:00:00.000Z",
+        });
+        yield* store.setBackfillState("orders", { cutoff: "t0", completed: true });
+        yield* store.setChangesState("orders", {
+          cursor: "t1",
+          lastSuccessAt: "2026-01-01T00:00:00.000Z",
+        });
+        const fiber = yield* Effect.forkScoped(
+          run(connector, { initialCutoff: "2026-01-03T00:00:00Z" }),
+        );
+        const cursor = yield* Deferred.await(fetched);
+        yield* Fiber.interrupt(fiber);
+        return { cursor, orders: yield* store.getResourceState("orders") };
+      }).pipe(
+        Effect.scoped,
+        Effect.provide(
+          Layer.mergeAll(
+            StateStoreLayerMemory,
+            ingestorLayer(yield* Ref.make<ReadonlyArray<IngestOptions>>([])),
+          ),
+        ),
+      );
+
+      expect({
+        cursor: result.cursor,
+        ordersBackfill: result.orders?.backfill,
+      }).toMatchInlineSnapshot(`
+        {
+          "cursor": "t1",
+          "ordersBackfill": {
+            "completed": true,
+            "cutoff": "t0",
+          },
+        }
+      `);
     }),
   );
 
