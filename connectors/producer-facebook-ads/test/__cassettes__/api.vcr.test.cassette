@@ -1,0 +1,1255 @@
+{
+  "exports": {
+    "default": {
+      "meta": {
+        "createdAt": "2026-10-21T18:00:00.000Z",
+        "version": "1"
+      },
+      "entries": {}
+    },
+    "Facebook Ads API (vcr) > checks, backfills, and reads changes for every resource": {
+      "meta": {
+        "createdAt": "2026-10-21T18:00:00.000Z",
+        "version": "1"
+      },
+      "entries": {
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328?fields=account_id%2Cname%2Ccurrency%2Ctimezone_name%2Ctimezone_offset_hours_utc%2Caccount_status%2Cdisable_reason%2Camount_spent%2Cspend_cap%2Ccreated_time\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328?fields=account_id%2Cname%2Ccurrency%2Ctimezone_name%2Ctimezone_offset_hours_utc%2Caccount_status%2Cdisable_reason%2Camount_spent%2Cspend_cap%2Ccreated_time",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"account_id\":\"1733560591063328\",\"account_status\":1,\"amount_spent\":\"0\",\"created_time\":\"2026-10-22T21:48:52+0530\",\"currency\":\"INR\",\"disable_reason\":0,\"id\":\"act_1733560591063328\",\"name\":\"New Sandbox Ad Account\",\"spend_cap\":\"0\",\"timezone_name\":\"Asia/Kolkata\",\"timezone_offset_hours_utc\":5.5}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "207",
+              "content-type": "application/json",
+              "date": "Thu, 22 Oct 2026 16:35:47 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_management\",\"call_count\":12,\"total_cputime\":1,\"total_time\":17,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=4558, tp=-1, tpl=-1, uplat=769, ullat=0",
+              "x-fb-debug": "Qb19j4WQ0PeQaplvagagdcMiyTiwKSDybrQNkK6XgaI0xTXxWv7pPu+6Gv2SmcjamGcDWekLZ4wyUOEY+QW/RA==",
+              "x-fb-request-id": "ANgNf-nDbTdgn1_GEwEs3d7",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "ADB8uVpP+p0"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/campaigns?fields=id%2Caccount_id%2Cname%2Cobjective%2Cstatus%2Ceffective_status%2Cbuying_type%2Cbid_strategy%2Cdaily_budget%2Clifetime_budget%2Cspend_cap%2Cspecial_ad_categories%2Cstart_time%2Cstop_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22campaign.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%5D%7D%5D&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/campaigns?fields=id%2Caccount_id%2Cname%2Cobjective%2Cstatus%2Ceffective_status%2Cbuying_type%2Cbid_strategy%2Cdaily_budget%2Clifetime_budget%2Cspend_cap%2Cspecial_ad_categories%2Cstart_time%2Cstop_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22campaign.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%5D%7D%5D&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[{\"account_id\":\"1733560591063328\",\"buying_type\":\"AUCTION\",\"created_time\":\"2026-10-22T22:03:15+0530\",\"effective_status\":\"DELETED\",\"id\":\"120330000133334115\",\"name\":\"Deleted test\",\"objective\":\"OUTCOME_TRAFFIC\",\"special_ad_categories\":[],\"start_time\":\"1970-01-01T05:29:59+0530\",\"status\":\"DELETED\",\"updated_time\":\"2026-10-22T22:04:28+0530\"}],\"paging\":{\"cursors\":{\"after\":\"QVFIVHhGbnpHUjJKTFJORFhVbVhTb3JRVUw1MXU5eWU3NjgtOFZADb2dfMWU2cVBUbFBGR3BRdks5UjhKT3NxaVdKMjZAJRUxIbEFRcnhlclRzSVFhQ0hPbVB3\",\"before\":\"QVFIVHhGbnpHUjJKTFJORFhVbVhTb3JRVUw1MXU5eWU3NjgtOFZADb2dfMWU2cVBUbFBGR3BRdks5UjhKT3NxaVdKMjZAJRUxIbEFRcnhlclRzSVFhQ0hPbVB3\"},\"next\":\"https://graph.facebook.com/v26.0/act_1733560591063328/campaigns?fields=id%2Caccount_id%2Cname%2Cobjective%2Cstatus%2Ceffective_status%2Cbuying_type%2Cbid_strategy%2Cdaily_budget%2Clifetime_budget%2Cspend_cap%2Cspecial_ad_categories%2Cstart_time%2Cstop_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22campaign.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%5D%7D%5D&limit=1&after=QVFIVHhGbnpHUjJKTFJORFhVbVhTb3JRVUw1MXU5eWU3NjgtOFZADb2dfMWU2cVBUbFBGR3BRdks5UjhKT3NxaVdKMjZAJRUxIbEFRcnhlclRzSVFhQ0hPbVB3\"}}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "663",
+              "content-type": "application/json",
+              "date": "Thu, 22 Oct 2026 16:35:48 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_management\",\"call_count\":12,\"total_cputime\":1,\"total_time\":17,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=5762, tp=-1, tpl=-1, uplat=310, ullat=0",
+              "x-fb-debug": "iv2SC+O9djlekvNrcEW0U/MplUHnKPy7TMATV5fGnTmJXx4an3+W/sjVVsbRPQNXmeVZ8oFK6hNP+mrGuPGJPA==",
+              "x-fb-request-id": "AO_Znc7NE2E5XuJIqVmFTxx",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "C63F+UiLAAD"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"500000\",\"campaign_id\":\"120330000133333115\",\"created_time\":\"2026-10-22T22:03:48+0530\",\"daily_budget\":\"0\",\"destination_type\":\"UNDEFINED\",\"effective_status\":\"ARCHIVED\",\"end_time\":\"2026-11-30T00:00:00+0530\",\"id\":\"120330000133341115\",\"lifetime_budget\":\"500000\",\"name\":\"Old audience\",\"optimization_goal\":\"REACH\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"ARCHIVED\",\"updated_time\":\"2026-10-22T22:04:26+0530\"}],\"paging\":{\"cursors\":{\"after\":\"QVFIVFJDZATVYV1ZAIY1ZA1dURKc0NyaHdRVURUZAXdFMmJZAanI1REFldThZAQlRrVzAtM2dvSTVtdzJMVEhmMWhEbkhIUWtVMVE5OGg4SXRuYXZAsNVRWYmt2SktR\",\"before\":\"QVFIVFJDZATVYV1ZAIY1ZA1dURKc0NyaHdRVURUZAXdFMmJZAanI1REFldThZAQlRrVzAtM2dvSTVtdzJMVEhmMWhEbkhIUWtVMVE5OGg4SXRuYXZAsNVRWYmt2SktR\"},\"next\":\"https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=1&after=QVFIVFJDZATVYV1ZAIY1ZA1dURKc0NyaHdRVURUZAXdFMmJZAanI1REFldThZAQlRrVzAtM2dvSTVtdzJMVEhmMWhEbkhIUWtVMVE5OGg4SXRuYXZAsNVRWYmt2SktR\"}}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "721",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:49 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=7444, tp=-1, tpl=-1, uplat=977, ullat=0",
+              "x-fb-debug": "uV9X/R6bV91e6JbunmBfyYMKdeMbDKv2rEcBLyamou/vxWaXcXkJcoQl/A/KF62FX3ieGhQXP7KQWKh1whD5oA==",
+              "x-fb-request-id": "A5Gl860qpPWxMatWT4vahkP",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "G5DQnwFawke"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-length": "11",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:49 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=9196, tp=-1, tpl=-1, uplat=312, ullat=0",
+              "x-fb-debug": "cWxt2qGqfMeVt9QxKswnFfVJlPqo+i12f0C5uJQsJK9MQvNq5yNxi36CZQxPRvr07E9xcJaBFuU7mQaDJw38hw==",
+              "x-fb-request-id": "AmMxx_fW3srVpn6Eolwnmdb",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "FxU2u71uEOe"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328?fields=timezone_name\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328?fields=timezone_name",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"id\":\"act_1733560591063328\",\"timezone_name\":\"Asia/Kolkata\"}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-length": "61",
+              "content-type": "application/json",
+              "date": "Thu, 22 Oct 2026 16:35:49 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_management\",\"call_count\":12,\"total_cputime\":2,\"total_time\":17,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=10170, tp=-1, tpl=-1, uplat=280, ullat=0",
+              "x-fb-debug": "32fd2ymOgiTwM2pXtrh3/QhBhuZjszJiIwaRsYahMl+OsqECvg+JQubQ72WAWK61kwMCLRyCsorlVDf5TWq1iA==",
+              "x-fb-request-id": "ANgTRIXdi47ukODD9EjZlcS",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "DoXZu2/C9tC"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:50 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":5,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=11183, tp=-1, tpl=-1, uplat=492, ullat=0",
+              "x-fb-debug": "sH7uZbvHqO1ueJljUcWD7xy/kx5RW7hmgpi/bBTGWgJ1pyFArmG5K82lo+tUxMoihxBcvdNPZszEEvy2VboJ0g==",
+              "x-fb-request-id": "AmjUJbZ28MfyDVtqBs68xD_",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "G+8rpLV1t6A",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:50 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":5,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=12427, tp=-1, tpl=-1, uplat=551, ullat=0",
+              "x-fb-debug": "WZsJiuZqj+J7UY+6kNXIjK3wnttqzf22Bws5k3HmaM439Xna0RcJFz2/tfCcSTfl6K+TD4MEAGtycqI4sCRahw==",
+              "x-fb-request-id": "Ahov6fT2ea50NKm7W1T4sxq",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "E2G7agx26OH",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:51 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":5,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=13671, tp=-1, tpl=-1, uplat=824, ullat=0",
+              "x-fb-debug": "Q8x2ibAMTD05DFWEegiqOH/CYBYctns0mUB+i0VcX7+kDEu3HcVfGgBLrUe2eLsfk2xcFfVRIsLIuUdMPaRSWg==",
+              "x-fb-request-id": "AMw-WB5h3LxK-YM0wlh5MQ6",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "Frk/DDRXAmJ",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=1\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=1",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:52 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":5,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=14915, tp=-1, tpl=-1, uplat=732, ullat=0",
+              "x-fb-debug": "XI6LAd+T6pcElnPgCIfk6YxW0HIhzGhLNvGtMo+5Bc68CpIq2o26hJ/qJADYdt1gh88+gC7mHBK5ilQDR3cDVA==",
+              "x-fb-request-id": "A5SKPT9hz8cnwr8G47f_-rk",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "A1R8K0gKyb6",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/campaigns?fields=id%2Caccount_id%2Cname%2Cobjective%2Cstatus%2Ceffective_status%2Cbuying_type%2Cbid_strategy%2Cdaily_budget%2Clifetime_budget%2Cspend_cap%2Cspecial_ad_categories%2Cstart_time%2Cstop_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22campaign.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%5D%7D%5D&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/campaigns?fields=id%2Caccount_id%2Cname%2Cobjective%2Cstatus%2Ceffective_status%2Cbuying_type%2Cbid_strategy%2Cdaily_budget%2Clifetime_budget%2Cspend_cap%2Cspecial_ad_categories%2Cstart_time%2Cstop_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22campaign.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%5D%7D%5D&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[{\"account_id\":\"1733560591063328\",\"buying_type\":\"AUCTION\",\"created_time\":\"2026-10-22T22:03:15+0530\",\"effective_status\":\"DELETED\",\"id\":\"120330000133334115\",\"name\":\"Deleted test\",\"objective\":\"OUTCOME_TRAFFIC\",\"special_ad_categories\":[],\"start_time\":\"1970-01-01T05:29:59+0530\",\"status\":\"DELETED\",\"updated_time\":\"2026-10-22T22:04:28+0530\"},{\"account_id\":\"1733560591063328\",\"buying_type\":\"AUCTION\",\"created_time\":\"2026-10-22T22:03:12+0530\",\"effective_status\":\"ARCHIVED\",\"id\":\"120330000133333615\",\"name\":\"Old promo\",\"objective\":\"OUTCOME_TRAFFIC\",\"special_ad_categories\":[],\"start_time\":\"1970-01-01T05:29:59+0530\",\"status\":\"ARCHIVED\",\"updated_time\":\"2026-10-22T22:04:23+0530\"},{\"account_id\":\"1733560591063328\",\"buying_type\":\"AUCTION\",\"created_time\":\"2026-10-22T22:03:10+0530\",\"effective_status\":\"PAUSED\",\"id\":\"120330000133333115\",\"name\":\"Brand awareness\",\"objective\":\"OUTCOME_AWARENESS\",\"special_ad_categories\":[],\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"PAUSED\",\"updated_time\":\"2026-10-22T22:03:10+0530\"},{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"buying_type\":\"AUCTION\",\"created_time\":\"2026-10-22T22:03:05+0530\",\"daily_budget\":\"60000\",\"effective_status\":\"PAUSED\",\"id\":\"120330000133332615\",\"name\":\"Autumn sale\",\"objective\":\"OUTCOME_TRAFFIC\",\"special_ad_categories\":[],\"start_time\":\"1970-01-01T05:29:59+0530\",\"status\":\"PAUSED\",\"updated_time\":\"2026-10-22T22:04:26+0530\"}],\"paging\":{\"cursors\":{\"after\":\"QVFIVGZASVl9Fc0o0aWgxb1N4eGNUYmVmbnhuSnhmUkRSY1JoSHloWmlkWUJjRW5XaTVNTDZAJUks5R0VOdDNNd2tJYlc3VjRNWjZAUNkN5QXczWEM1dEwzZAGdR\",\"before\":\"QVFIVHhGbnpHUjJKTFJORFhVbVhTb3JRVUw1MXU5eWU3NjgtOFZADb2dfMWU2cVBUbFBGR3BRdks5UjhKT3NxaVdKMjZAJRUxIbEFRcnhlclRzSVFhQ0hPbVB3\"}}}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "638",
+              "content-type": "application/json",
+              "date": "Thu, 22 Oct 2026 16:35:53 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_management\",\"call_count\":13,\"total_cputime\":2,\"total_time\":17,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=16159, tp=-1, tpl=-1, uplat=420, ullat=0",
+              "x-fb-debug": "iVmnTqzP+YPzHCGpLUMwNolQMW/gxy0+PJH4cHIwKuQTP3p9DfAt/zq9SD/C2GJo3L7H5lTy74AiOBOd1hh4LQ==",
+              "x-fb-request-id": "AV8R9swzXSRRQa5iowz09w0",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "ErFbC79lyFU"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"500000\",\"campaign_id\":\"120330000133333115\",\"created_time\":\"2026-10-22T22:03:48+0530\",\"daily_budget\":\"0\",\"destination_type\":\"UNDEFINED\",\"effective_status\":\"ARCHIVED\",\"end_time\":\"2026-11-30T00:00:00+0530\",\"id\":\"120330000133341115\",\"lifetime_budget\":\"500000\",\"name\":\"Old audience\",\"optimization_goal\":\"REACH\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"ARCHIVED\",\"updated_time\":\"2026-10-22T22:04:26+0530\"},{\"account_id\":\"1733560591063328\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"0\",\"campaign_id\":\"120330000133332615\",\"created_time\":\"2026-10-22T22:03:31+0530\",\"destination_type\":\"WEBSITE\",\"effective_status\":\"DELETED\",\"id\":\"120330000133337715\",\"name\":\"Site visitors\",\"optimization_goal\":\"LINK_CLICKS\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"DELETED\",\"updated_time\":\"2026-10-22T22:05:01+0530\"},{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"25000\",\"campaign_id\":\"120330000133333115\",\"created_time\":\"2026-10-22T22:03:27+0530\",\"daily_budget\":\"25000\",\"destination_type\":\"UNDEFINED\",\"effective_status\":\"PAUSED\",\"id\":\"120330000133334915\",\"lifetime_budget\":\"0\",\"name\":\"India reach v2\",\"optimization_goal\":\"REACH\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"PAUSED\",\"updated_time\":\"2026-10-22T22:04:18+0530\"}],\"paging\":{\"cursors\":{\"after\":\"QVFIVG9HYm1mcG5zRTA3MFVVSGh1TW14QVZAIRE9FbHBOOVhrUHc3U2VLbnFrdzhHR0IzdlNCcDVod1R2VWI0VURIVDljZATd5TTBkWlBFLVVkQXRkU0NHek1R\",\"before\":\"QVFIVFJDZATVYV1ZAIY1ZA1dURKc0NyaHdRVURUZAXdFMmJZAanI1REFldThZAQlRrVzAtM2dvSTVtdzJMVEhmMWhEbkhIUWtVMVE5OGg4SXRuYXZAsNVRWYmt2SktR\"}}}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "676",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:53 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=17817, tp=-1, tpl=-1, uplat=552, ullat=0",
+              "x-fb-debug": "Xkj3MkI5Mfa4uY05bq+gfhm1at6dTce8pIg5CUvxXBfFu7iwUzl7WXwLcQIFJ57QWCcfKT2jwpn/YU/5HHA0HQ==",
+              "x-fb-request-id": "AcZp4GmOWtC5_pusPNNKPy4",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "F9V0LdgNPbw"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=500&updated_since=1792518900\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/adsets?fields=id%2Caccount_id%2Ccampaign_id%2Cname%2Cstatus%2Ceffective_status%2Coptimization_goal%2Cbilling_event%2Cbid_strategy%2Cbid_amount%2Cdaily_budget%2Clifetime_budget%2Cbudget_remaining%2Cdestination_type%2Cstart_time%2Cend_time%2Ccreated_time%2Cupdated_time&filtering=%5B%7B%22field%22%3A%22adset.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%5D%7D%5D&limit=500&updated_since=1792518900",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"500000\",\"campaign_id\":\"120330000133333115\",\"created_time\":\"2026-10-22T22:03:48+0530\",\"daily_budget\":\"0\",\"destination_type\":\"UNDEFINED\",\"effective_status\":\"ARCHIVED\",\"end_time\":\"2026-11-30T00:00:00+0530\",\"id\":\"120330000133341115\",\"lifetime_budget\":\"500000\",\"name\":\"Old audience\",\"optimization_goal\":\"REACH\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"ARCHIVED\",\"updated_time\":\"2026-10-22T22:04:26+0530\"},{\"account_id\":\"1733560591063328\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"0\",\"campaign_id\":\"120330000133332615\",\"created_time\":\"2026-10-22T22:03:31+0530\",\"destination_type\":\"WEBSITE\",\"effective_status\":\"DELETED\",\"id\":\"120330000133337715\",\"name\":\"Site visitors\",\"optimization_goal\":\"LINK_CLICKS\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"DELETED\",\"updated_time\":\"2026-10-22T22:05:01+0530\"},{\"account_id\":\"1733560591063328\",\"bid_strategy\":\"LOWEST_COST_WITHOUT_CAP\",\"billing_event\":\"IMPRESSIONS\",\"budget_remaining\":\"25000\",\"campaign_id\":\"120330000133333115\",\"created_time\":\"2026-10-22T22:03:27+0530\",\"daily_budget\":\"25000\",\"destination_type\":\"UNDEFINED\",\"effective_status\":\"PAUSED\",\"id\":\"120330000133334915\",\"lifetime_budget\":\"0\",\"name\":\"India reach v2\",\"optimization_goal\":\"REACH\",\"start_time\":\"2026-10-25T00:00:00+0530\",\"status\":\"PAUSED\",\"updated_time\":\"2026-10-22T22:04:18+0530\"}],\"paging\":{\"cursors\":{\"after\":\"QVFIVG9HYm1mcG5zRTA3MFVVSGh1TW14QVZAIRE9FbHBOOVhrUHc3U2VLbnFrdzhHR0IzdlNCcDVod1R2VWI0VURIVDljZATd5TTBkWlBFLVVkQXRkU0NHek1R\",\"before\":\"QVFIVFJDZATVYV1ZAIY1ZA1dURKc0NyaHdRVURUZAXdFMmJZAanI1REFldThZAQlRrVzAtM2dvSTVtdzJMVEhmMWhEbkhIUWtVMVE5OGg4SXRuYXZAsNVRWYmt2SktR\"}}}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-length": "676",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:54 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin, Accept-Encoding",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=19525, tp=-1, tpl=-1, uplat=439, ullat=0",
+              "x-fb-debug": "2O3b/Tf7Qo6HOyXyzPdP83fw3UaRQgXHbWqz3owCNtfsToXeh26vj30VWcl/MvWEPJZMzPtN6m4BDPE+UGyMHA==",
+              "x-fb-request-id": "AgW8zfvmrr6ph4jQuxwFBmz",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "GQfPA/qEtys"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-length": "11",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:54 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=21233, tp=-1, tpl=-1, uplat=302, ullat=0",
+              "x-fb-debug": "lgynWfyeRjiqJhkv6K0W31mi4pRyzQnqRphAU3WS5FUpOl4SQiaNvraequ15mdd+65xH/sHi/OUrM1axNY2VLg==",
+              "x-fb-request-id": "AGUaZfEH9_2SoQR-1m1_eIN",
+              "x-fb-rev": "1051316272",
+              "x-fb-trace-id": "F6P1abYA3ho"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=500&updated_since=1792518900\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/ads?fields=id%2Caccount_id%2Ccampaign_id%2Cadset_id%2Cname%2Cstatus%2Ceffective_status%2Ccreated_time%2Cupdated_time%2Ccreative%7Bid%2Cname%2Ctitle%2Cbody%2Ccall_to_action_type%2Cthumbnail_url%2Cimage_url%2Cobject_type%2Cobject_story_id%2Clink_url%2Curl_tags%7D&filtering=%5B%7B%22field%22%3A%22ad.effective_status%22%2C%22operator%22%3A%22IN%22%2C%22value%22%3A%5B%22ACTIVE%22%2C%22PAUSED%22%2C%22ARCHIVED%22%2C%22DELETED%22%2C%22IN_PROCESS%22%2C%22WITH_ISSUES%22%2C%22CAMPAIGN_PAUSED%22%2C%22ADSET_PAUSED%22%2C%22PENDING_REVIEW%22%2C%22DISAPPROVED%22%2C%22PREAPPROVED%22%2C%22PENDING_BILLING_INFO%22%5D%7D%5D&limit=500&updated_since=1792518900",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "access-control-allow-origin": "*",
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-length": "11",
+              "content-type": "application/json",
+              "cross-origin-resource-policy": "cross-origin",
+              "date": "Thu, 22 Oct 2026 16:35:54 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "vary": "Origin",
+              "x-ad-account-usage": "{\"acc_id_util_pct\":0,\"reset_time_duration\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-app-usage": "{\"call_count\":0,\"total_cputime\":0,\"total_time\":0}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=22208, tp=-1, tpl=-1, uplat=300, ullat=0",
+              "x-fb-debug": "hiSi7fJF4GdfdEHintyCPi2B226yjX1tMTL6Vjm0YZJyZQfbHEc6kvLnsuACsGH1hDmVT/lL3j0z9/3+AJJf3A==",
+              "x-fb-request-id": "AcFV__ttxYTzuSEGv063Ux4",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "FWqholVXBMJ"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:55 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=23183, tp=-1, tpl=-1, uplat=341, ullat=0",
+              "x-fb-debug": "LZIpMu1IqdocFf4j4fvaMvFPVsHoLFtSX4ymYNBu++efhj7+Xx9QNwk3rsmsX9aZgKvW3Zej5+Rtaswwq4YXnA==",
+              "x-fb-request-id": "AZUOi6OdUFaA86w5mPka_Uh",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "GJLKq/ShJvx",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:55 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=24427, tp=-1, tpl=-1, uplat=516, ullat=0",
+              "x-fb-debug": "sr9g6EXpQO+q2vokCUkjLdJFoAdVCn6ZNXiO3fn0RABC8oBW2UK6CupbQWSNG5Ff/BQ8j+4lF04XmCh61/i6Mw==",
+              "x-fb-request-id": "ADtUGjbYjpF2G1205f-R7UM",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "Bcwka+27dCK",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:56 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=25671, tp=-1, tpl=-1, uplat=496, ullat=0",
+              "x-fb-debug": "9YDWJMoAOwkE9gYetqjI1bb4FqzLTj5GJgAJUbiKaJOBoBYF9RFY1BBYbHUuXa0GL5aFr2EC7K9/cjg5Tz0NBw==",
+              "x-fb-request-id": "ABiLPvVu8kZYRx6k4iuHSN7",
+              "x-fb-rev": "1051316272",
+              "x-fb-trace-id": "GD5/9N6cLWY",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:56 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.01,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=0, c=10, mss=1380, tbw=26915, tp=-1, tpl=-1, uplat=650, ullat=0",
+              "x-fb-debug": "crCwkZAlWDjfDH0x4e6ys95AHAMyzJbwMras5KhppGqcteRifoTgtO41bHqpy8ZjwMhRRlbf4IbA7tp3oJM8FQ==",
+              "x-fb-request-id": "AFKlvQPzvkfjPiBBdTUEk-c",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "DIXlKQ6Jokg",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values%2Cconversions%2Cconversion_values%2Cvideo_play_actions%2Cvideo_p25_watched_actions%2Cvideo_p50_watched_actions%2Cvideo_p75_watched_actions%2Cvideo_p100_watched_actions&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:57 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.04,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=28159, tp=-1, tpl=-1, uplat=460, ullat=0",
+              "x-fb-debug": "BahfXxYhbwWw7PfPObogAatsPig8B3/iEH/DdiLSv5gBV6eZT5b9TDB4ya5FPlPP20eXHZAtuDUIjIh0Ml2Itg==",
+              "x-fb-request-id": "A5Dt5qYTEm6DrOxCCq7a7zG",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "GulmMqE3fhS",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:57 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.04,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=29403, tp=-1, tpl=-1, uplat=390, ullat=0",
+              "x-fb-debug": "42V7TgOwlsMSTE5dZcIHFINFjLKbo1kOI82g2cj9XIXUt84i2pJF0hFvLqG3Ln1ybbq6fRRqkvdPQXHAOZgp3Q==",
+              "x-fb-request-id": "AUcIE3kMJ9DJmN42Lh-16di",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "BLSddNiYJki",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:58 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":6,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.02,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=30647, tp=-1, tpl=-1, uplat=668, ullat=0",
+              "x-fb-debug": "+yurw4TxYtmCFz2giP9TQFz8e4lw5oZQxqoBRCltDoTy8tKagFTjNL7MUCCefjq24wYFArfanmbNkOWycOIe7Q==",
+              "x-fb-request-id": "AR0rQjcjqICwndNxXDcObXo",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "GJUgMEnsdqr",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:59 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":7,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.02,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=31891, tp=-1, tpl=-1, uplat=531, ullat=0",
+              "x-fb-debug": "2pOJfh6cumCnXHc7dn0VRWX1HCOzen6AlczNK+MBvL0cnpoVtKY6QM+umKtM8PMdE+f+Ml+minQrBs8j14xjCQ==",
+              "x-fb-request-id": "AXZbn4QYQxgaivkg3lbDuHN",
+              "x-fb-rev": "1051316272",
+              "x-fb-trace-id": "B1ZX8CAZ4y8",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:35:59 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":7,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=33135, tp=-1, tpl=-1, uplat=430, ullat=0",
+              "x-fb-debug": "WahV/ODeAAbj9hgVd0g/t+DnkDlUtVgpPYn/qFe+WUTjaadHFh6NJ8BoPYPIW//nafFZR4HQZ4HXq1uKDcZCIg==",
+              "x-fb-request-id": "A1AvHOmB5CY1o_3_POEDasG",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "FpfwrT6gVWs",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=age%2Cgender&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:00 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":7,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=0, c=10, mss=1380, tbw=34379, tp=-1, tpl=-1, uplat=616, ullat=0",
+              "x-fb-debug": "J08dXP3XavjDJUu5P6GXi0w75pv9II+j6CTKTbxoqSuXOPEFN1rL4aU/VzqYPZouBCa8+IYU1wlwelNGcJfvIQ==",
+              "x-fb-request-id": "AI7HG54tWrjOkUnMGRpGRko",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "E9tGqB3tEfP",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:00 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":7,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=1, c=7, mss=1380, tbw=35623, tp=-1, tpl=-1, uplat=350, ullat=0",
+              "x-fb-debug": "X2wn1vii5e33iD+CBv05DQOW60sawOqkOxW+GeMJtbV87FBfXebBjNSyqsoEp0lT6CbMFKe6vuMhBMyhKEX4IQ==",
+              "x-fb-request-id": "AU26XM-WERscfeCOp9e6JPz",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "DpxGT4D7bLX",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:01 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":7,\"total_cputime\":1,\"total_time\":3,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=1, c=7, mss=1380, tbw=36866, tp=-1, tpl=-1, uplat=518, ullat=0",
+              "x-fb-debug": "ccZpFlucezMe/Tbg9Vm93roImv8VUgcetgRjElr64spT6YSFU1VgXRDYr+XvvqwJy3p2u5mFxr/R7gxwPnqhsw==",
+              "x-fb-request-id": "A3i_36Khmed28xBxzcIeDbs",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "DnzSDi4G1Z8",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:01 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":1,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=1, c=7, mss=1380, tbw=38109, tp=-1, tpl=-1, uplat=461, ullat=0",
+              "x-fb-debug": "pVSyxsyc6lYky/duYnmGBwh4RVtEBDgDfy/IxZw5snKmerU+C/wdC6ShN6a3JPpzQp3FReKv1qa1q0Az4f1unw==",
+              "x-fb-request-id": "ALNlqnqgMe0_GxU4pMuaH-K",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "CqiNEYS+3Rr",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:02 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":1,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=23, rtx=1, c=7, mss=1380, tbw=39352, tp=-1, tpl=-1, uplat=554, ullat=0",
+              "x-fb-debug": "YBheqJiMsoNG91V7QE7g+dQAQTcsabia/O2e/GSVlsgcTVuKGr7LV/LsXfahoZqRSj7d5fmmCfECqTycVbaBsQ==",
+              "x-fb-request-id": "ALr5gx6SsEo7gi_8xwX3_Yf",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "E3ffX41BJua",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=country&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:02 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=1, c=7, mss=1380, tbw=40595, tp=-1, tpl=-1, uplat=652, ullat=0",
+              "x-fb-debug": "sSgbytYGa4Q07v7TAPZiwg8g5Q1irZM0SgfwAcWPiu4/4y+IIW5cZ0efMp66uX3a2iTq0vnjkBkgB7p0KvhjSg==",
+              "x-fb-request-id": "AJUftLZ9Og3oy0FO4Cua29-",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "G4Lz2t6LHHd",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-17%22%2C%22until%22%3A%222026-10-17%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:03 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=1, c=7, mss=1380, tbw=41838, tp=-1, tpl=-1, uplat=368, ullat=0",
+              "x-fb-debug": "33ZD626snd2dnzB3KF2HtK+RDyKIRFXIEZYx+By7Bn530W0Pqm5QSfdS/sAMgGwYLbpzRv8ZcKt+Qaiu7fhFnQ==",
+              "x-fb-request-id": "A6GtDQHcb64EMV7CO6cr68S",
+              "x-fb-rev": "1051316272",
+              "x-fb-trace-id": "FcMRUiLSfIc",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-18%22%2C%22until%22%3A%222026-10-18%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:03 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=1, c=7, mss=1380, tbw=43081, tp=-1, tpl=-1, uplat=474, ullat=0",
+              "x-fb-debug": "2i5nZKqP3EMetypj6nTG5ADWnOdTK2FKzuhjz87qCxSiOoJhuQw68Si61v0Q+YGgVDW10JKXmev32BNtgM0Cag==",
+              "x-fb-request-id": "A2y-vaeDzSZ5jfGi5q6K-Br",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "Dut/acc9kvo",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-19%22%2C%22until%22%3A%222026-10-19%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:04 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.02,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=1, c=7, mss=1380, tbw=44324, tp=-1, tpl=-1, uplat=714, ullat=0",
+              "x-fb-debug": "sRJEoRPTXumJjhO3IZpvG04zoWVnfLNX8gn3wuiQ7xMcNwAG/pKGpvae5wJYnprji5SRP1Ox34KIR6irTypFaQ==",
+              "x-fb-request-id": "AeJsX-oVtpmCWw87IULsw5I",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "CuTNVaJmT2v",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-20%22%2C%22until%22%3A%222026-10-20%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:05 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":8,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.02,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=22, rtx=1, c=7, mss=1380, tbw=45567, tp=-1, tpl=-1, uplat=588, ullat=0",
+              "x-fb-debug": "3IJ9qJKjE/3IwxB7azpeENV+U0cII1a16e54PORH6UmO9MK8uLOBhgIpZelNSumsloXH7Y7RZ/K/OZDLRfdrhA==",
+              "x-fb-request-id": "A56TPOxTyV6Hylzi5PS5Rhq",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "EkTLaFbF0AJ",
+              "x-frame-options": "DENY"
+            }
+          }
+        },
+        "{\"body\":\"\",\"headers\":{\"accept\":\"application/json\"},\"method\":\"GET\",\"url\":\"https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500\"}": {
+          "request": {
+            "method": "GET",
+            "url": "https://graph.facebook.com/v26.0/act_1733560591063328/insights?level=ad&time_increment=1&time_range=%7B%22since%22%3A%222026-10-21%22%2C%22until%22%3A%222026-10-21%22%7D&fields=account_id%2Ccampaign_id%2Cadset_id%2Cad_id%2Cdate_start%2Caccount_currency%2Cimpressions%2Creach%2Cclicks%2Cinline_link_clicks%2Cspend%2Cactions%2Caction_values&breakdowns=publisher_platform%2Cplatform_position&limit=500",
+            "headers": {
+              "accept": "application/json"
+            }
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"data\":[]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=86400",
+              "cache-control": "private, no-cache, no-store, must-revalidate",
+              "connection": "keep-alive",
+              "content-encoding": "br",
+              "content-security-policy": "frame-ancestors 'none'",
+              "content-type": "application/json; charset=utf-8",
+              "date": "Thu, 22 Oct 2026 16:36:05 GMT",
+              "expires": "Sat, 01 Jan 2000 00:00:00 GMT",
+              "facebook-api-version": "v26.0",
+              "pragma": "no-cache",
+              "strict-transport-security": "max-age=15552000; preload",
+              "transfer-encoding": "chunked",
+              "vary": "Accept-Encoding",
+              "x-business-use-case-usage": "{\"1733560591063328\":[{\"type\":\"ads_insights\",\"call_count\":9,\"total_cputime\":2,\"total_time\":4,\"estimated_time_to_regain_access\":0,\"ads_api_access_tier\":\"development_access\"}]}",
+              "x-content-type-options": "nosniff",
+              "x-fb-ads-insights-throttle": "{\"app_id_util_pct\":0.03,\"acc_id_util_pct\":0,\"ads_api_access_tier\":\"development_access\"}",
+              "x-fb-connection-quality": "EXCELLENT; q=0.9, rtt=34, rtx=2, c=10, mss=1380, tbw=46810, tp=-1, tpl=-1, uplat=462, ullat=0",
+              "x-fb-debug": "Q7CCTwa4E0sktuP1HEkHjGw92h1wsZHN3aHS9eBYOvMkrKzko/G3xoQDl1udlGmTWuuWHysIjlBzHHZZWcQQ/Q==",
+              "x-fb-request-id": "Aofv3Idfd5Mwj0Cst_6ChBX",
+              "x-fb-rev": "1051311018",
+              "x-fb-trace-id": "F5Z599YrX0l",
+              "x-frame-options": "DENY"
+            }
+          }
+        }
+      }
+    }
+  }
+}
