@@ -1,0 +1,1334 @@
+{
+  "exports": {
+    "default": {
+      "meta": {
+        "createdAt": "2026-10-21T16:15:00.000Z",
+        "version": "1"
+      },
+      "entries": {}
+    },
+    "Google Analytics API (vcr) > checks, backfills, and reads changes for every report": {
+      "meta": {
+        "createdAt": "2026-10-21T16:15:00.000Z",
+        "version": "1"
+      },
+      "entries": {
+        "{\"body\":\"grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer\",\"headers\":{\"accept\":\"application/json\",\"content-type\":\"application/x-www-form-urlencoded\"},\"method\":\"POST\",\"url\":\"https://oauth2.googleapis.com/token\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://oauth2.googleapis.com/token",
+            "headers": {
+              "accept": "application/json",
+              "content-type": "application/x-www-form-urlencoded"
+            },
+            "body": "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=jwt-placeholder"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"access_token\":\"google-access-token-placeholder\",\"expires_in\":3599,\"token_type\":\"Bearer\"}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:49 GMT",
+              "server": "scaffolding on HTTPServer2",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"yesterday\\\",\\\"startDate\\\":\\\"yesterday\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"200\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "200",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"yesterday\",\"startDate\":\"yesterday\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":1,\"metrics\":[{\"name\":\"sessions\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"}],\"metricValues\":[{\"value\":\"119\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:50 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"422\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "422",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":1,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"totalUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"}],\"metricValues\":[{\"value\":\"60\"},{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"285\"},{\"value\":\"420\"},{\"value\":\"16\"},{\"value\":\"812\"},{\"value\":\"8014\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:54 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"sessionSource\\\"},{\\\"name\\\":\\\"sessionMedium\\\"},{\\\"name\\\":\\\"sessionCampaignName\\\"},{\\\"name\\\":\\\"sessionDefaultChannelGroup\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"730\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "730",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"limit\":1,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"sessionSource\"}},{\"dimension\":{\"dimensionName\":\"sessionMedium\"}},{\"dimension\":{\"dimensionName\":\"sessionCampaignName\"}},{\"dimension\":{\"dimensionName\":\"sessionDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"Unassigned\"}],\"metricValues\":[{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"0\"},{\"value\":\"285\"},{\"value\":\"420\"},{\"value\":\"16\"},{\"value\":\"812\"},{\"value\":\"8014\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:55 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"firstUserSource\\\"},{\\\"name\\\":\\\"firstUserMedium\\\"},{\\\"name\\\":\\\"firstUserCampaignName\\\"},{\\\"name\\\":\\\"firstUserDefaultChannelGroup\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"663\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "663",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"limit\":1,\"metrics\":[{\"name\":\"newUsers\"},{\"name\":\"activeUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"firstUserSource\"}},{\"dimension\":{\"dimensionName\":\"firstUserMedium\"}},{\"dimension\":{\"dimensionName\":\"firstUserCampaignName\"}},{\"dimension\":{\"dimensionName\":\"firstUserDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"Unassigned\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"16\"},{\"value\":\"812\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:57 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"hostName\\\"},{\\\"name\\\":\\\"pagePath\\\"},{\\\"name\\\":\\\"pageTitle\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"hostName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pagePath\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pageTitle\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"500\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "500",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"limit\":1,\"metrics\":[{\"name\":\"screenPageViews\"},{\"name\":\"activeUsers\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"hostName\"}},{\"dimension\":{\"dimensionName\":\"pagePath\"}},{\"dimension\":{\"dimensionName\":\"pageTitle\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":7,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"\"},{\"value\":\"\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"56\"},{\"value\":\"135\"},{\"value\":\"16\"},{\"value\":\"3634\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:58 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"landingPage\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"landingPage\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"386\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "386",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"limit\":1,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"landingPage\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":6,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"11\"},{\"value\":\"0\"},{\"value\":\"3\"},{\"value\":\"133\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:58 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"eventName\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"eventValue\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"eventName\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"334\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "334",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"limit\":1,\"metrics\":[{\"name\":\"eventCount\"},{\"name\":\"totalUsers\"},{\"name\":\"eventValue\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"eventName\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventValue\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}],\"rowCount\":6,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"54\"},{\"value\":\"0\"},{\"value\":\"0\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:15:59 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"country\\\"},{\\\"name\\\":\\\"region\\\"},{\\\"name\\\":\\\"city\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"country\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"region\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"city\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"492\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "492",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"limit\":1,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"country\"}},{\"dimension\":{\"dimensionName\":\"region\"}},{\"dimension\":{\"dimensionName\":\"city\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":5,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"Germany\"},{\"value\":\"Berlin\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"16\"},{\"value\":\"0\"},{\"value\":\"33\"},{\"value\":\"0\"},{\"value\":\"5\"},{\"value\":\"191\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:00 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"deviceCategory\\\"},{\\\"name\\\":\\\"platform\\\"},{\\\"name\\\":\\\"operatingSystem\\\"},{\\\"name\\\":\\\"browser\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"deviceCategory\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"platform\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"operatingSystem\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"browser\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"596\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "596",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"limit\":1,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"deviceCategory\"}},{\"dimension\":{\"dimensionName\":\"platform\"}},{\"dimension\":{\"dimensionName\":\"operatingSystem\"}},{\"dimension\":{\"dimensionName\":\"browser\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}],\"rowCount\":5,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"desktop\"},{\"value\":\"web\"},{\"value\":\"Windows\"},{\"value\":\"Edge\"}],\"metricValues\":[{\"value\":\"12\"},{\"value\":\"0\"},{\"value\":\"27\"},{\"value\":\"0\"},{\"value\":\"70\"},{\"value\":\"3\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:01 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"itemId\\\"},{\\\"name\\\":\\\"itemName\\\"},{\\\"name\\\":\\\"itemBrand\\\"},{\\\"name\\\":\\\"itemCategory\\\"}],\\\"limit\\\":1,\\\"metrics\\\":[{\\\"name\\\":\\\"itemsViewed\\\"},{\\\"name\\\":\\\"itemsAddedToCart\\\"},{\\\"name\\\":\\\"itemsPurchased\\\"},{\\\"name\\\":\\\"itemRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemId\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemBrand\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemCategory\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"540\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "540",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"limit\":1,\"metrics\":[{\"name\":\"itemsViewed\"},{\"name\":\"itemsAddedToCart\"},{\"name\":\"itemsPurchased\"},{\"name\":\"itemRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"itemId\"}},{\"dimension\":{\"dimensionName\":\"itemName\"}},{\"dimension\":{\"dimensionName\":\"itemBrand\"}},{\"dimension\":{\"dimensionName\":\"itemCategory\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"itemsViewed\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsAddedToCart\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsPurchased\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":3,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"SKU-1\"},{\"value\":\"Starter plan\"},{\"value\":\"Airfoil\"},{\"value\":\"Plans\"}],\"metricValues\":[{\"value\":\"15\"},{\"value\":\"10\"},{\"value\":\"7\"},{\"value\":\"203\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:02 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"427\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "427",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"totalUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:02 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"427\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "427",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"totalUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:03 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"427\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "427",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"totalUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:03 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"427\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "427",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"totalUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"}],\"metricValues\":[{\"value\":\"60\"},{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"285\"},{\"value\":\"420\"},{\"value\":\"16\"},{\"value\":\"812\"},{\"value\":\"8014\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:04 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"sessionSource\\\"},{\\\"name\\\":\\\"sessionMedium\\\"},{\\\"name\\\":\\\"sessionCampaignName\\\"},{\\\"name\\\":\\\"sessionDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"735\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "735",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"sessionSource\"}},{\"dimension\":{\"dimensionName\":\"sessionMedium\"}},{\"dimension\":{\"dimensionName\":\"sessionCampaignName\"}},{\"dimension\":{\"dimensionName\":\"sessionDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:05 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"sessionSource\\\"},{\\\"name\\\":\\\"sessionMedium\\\"},{\\\"name\\\":\\\"sessionCampaignName\\\"},{\\\"name\\\":\\\"sessionDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"735\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "735",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"sessionSource\"}},{\"dimension\":{\"dimensionName\":\"sessionMedium\"}},{\"dimension\":{\"dimensionName\":\"sessionCampaignName\"}},{\"dimension\":{\"dimensionName\":\"sessionDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:06 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"sessionSource\\\"},{\\\"name\\\":\\\"sessionMedium\\\"},{\\\"name\\\":\\\"sessionCampaignName\\\"},{\\\"name\\\":\\\"sessionDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"735\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "735",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"sessionSource\"}},{\"dimension\":{\"dimensionName\":\"sessionMedium\"}},{\"dimension\":{\"dimensionName\":\"sessionCampaignName\"}},{\"dimension\":{\"dimensionName\":\"sessionDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:09 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"sessionSource\\\"},{\\\"name\\\":\\\"sessionMedium\\\"},{\\\"name\\\":\\\"sessionCampaignName\\\"},{\\\"name\\\":\\\"sessionDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"sessionDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"735\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "735",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"screenPageViews\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"sessionSource\"}},{\"dimension\":{\"dimensionName\":\"sessionMedium\"}},{\"dimension\":{\"dimensionName\":\"sessionCampaignName\"}},{\"dimension\":{\"dimensionName\":\"sessionDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"sessionSource\"},{\"name\":\"sessionMedium\"},{\"name\":\"sessionCampaignName\"},{\"name\":\"sessionDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"Unassigned\"}],\"metricValues\":[{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"0\"},{\"value\":\"285\"},{\"value\":\"420\"},{\"value\":\"16\"},{\"value\":\"812\"},{\"value\":\"8014\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:11 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"firstUserSource\\\"},{\\\"name\\\":\\\"firstUserMedium\\\"},{\\\"name\\\":\\\"firstUserCampaignName\\\"},{\\\"name\\\":\\\"firstUserDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"668\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "668",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"newUsers\"},{\"name\":\"activeUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"firstUserSource\"}},{\"dimension\":{\"dimensionName\":\"firstUserMedium\"}},{\"dimension\":{\"dimensionName\":\"firstUserCampaignName\"}},{\"dimension\":{\"dimensionName\":\"firstUserDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:13 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"firstUserSource\\\"},{\\\"name\\\":\\\"firstUserMedium\\\"},{\\\"name\\\":\\\"firstUserCampaignName\\\"},{\\\"name\\\":\\\"firstUserDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"668\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "668",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"newUsers\"},{\"name\":\"activeUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"firstUserSource\"}},{\"dimension\":{\"dimensionName\":\"firstUserMedium\"}},{\"dimension\":{\"dimensionName\":\"firstUserCampaignName\"}},{\"dimension\":{\"dimensionName\":\"firstUserDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:14 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"firstUserSource\\\"},{\\\"name\\\":\\\"firstUserMedium\\\"},{\\\"name\\\":\\\"firstUserCampaignName\\\"},{\\\"name\\\":\\\"firstUserDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"668\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "668",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"newUsers\"},{\"name\":\"activeUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"firstUserSource\"}},{\"dimension\":{\"dimensionName\":\"firstUserMedium\"}},{\"dimension\":{\"dimensionName\":\"firstUserCampaignName\"}},{\"dimension\":{\"dimensionName\":\"firstUserDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:15 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"firstUserSource\\\"},{\\\"name\\\":\\\"firstUserMedium\\\"},{\\\"name\\\":\\\"firstUserCampaignName\\\"},{\\\"name\\\":\\\"firstUserDefaultChannelGroup\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserSource\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserMedium\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserCampaignName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"firstUserDefaultChannelGroup\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"668\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "668",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"limit\":100000,\"metrics\":[{\"name\":\"newUsers\"},{\"name\":\"activeUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"firstUserSource\"}},{\"dimension\":{\"dimensionName\":\"firstUserMedium\"}},{\"dimension\":{\"dimensionName\":\"firstUserCampaignName\"}},{\"dimension\":{\"dimensionName\":\"firstUserDefaultChannelGroup\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"firstUserSource\"},{\"name\":\"firstUserMedium\"},{\"name\":\"firstUserCampaignName\"},{\"name\":\"firstUserDefaultChannelGroup\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":1,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"(not set)\"},{\"value\":\"Unassigned\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"119\"},{\"value\":\"0\"},{\"value\":\"16\"},{\"value\":\"812\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:17 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"hostName\\\"},{\\\"name\\\":\\\"pagePath\\\"},{\\\"name\\\":\\\"pageTitle\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"hostName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pagePath\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pageTitle\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"505\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "505",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"limit\":100000,\"metrics\":[{\"name\":\"screenPageViews\"},{\"name\":\"activeUsers\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"hostName\"}},{\"dimension\":{\"dimensionName\":\"pagePath\"}},{\"dimension\":{\"dimensionName\":\"pageTitle\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:17 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"hostName\\\"},{\\\"name\\\":\\\"pagePath\\\"},{\\\"name\\\":\\\"pageTitle\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"hostName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pagePath\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pageTitle\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"505\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "505",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"limit\":100000,\"metrics\":[{\"name\":\"screenPageViews\"},{\"name\":\"activeUsers\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"hostName\"}},{\"dimension\":{\"dimensionName\":\"pagePath\"}},{\"dimension\":{\"dimensionName\":\"pageTitle\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:18 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"hostName\\\"},{\\\"name\\\":\\\"pagePath\\\"},{\\\"name\\\":\\\"pageTitle\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"hostName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pagePath\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pageTitle\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"505\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "505",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"limit\":100000,\"metrics\":[{\"name\":\"screenPageViews\"},{\"name\":\"activeUsers\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"hostName\"}},{\"dimension\":{\"dimensionName\":\"pagePath\"}},{\"dimension\":{\"dimensionName\":\"pageTitle\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:19 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"hostName\\\"},{\\\"name\\\":\\\"pagePath\\\"},{\\\"name\\\":\\\"pageTitle\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"userEngagementDuration\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"hostName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pagePath\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"pageTitle\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"505\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "505",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"limit\":100000,\"metrics\":[{\"name\":\"screenPageViews\"},{\"name\":\"activeUsers\"},{\"name\":\"eventCount\"},{\"name\":\"keyEvents\"},{\"name\":\"userEngagementDuration\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"hostName\"}},{\"dimension\":{\"dimensionName\":\"pagePath\"}},{\"dimension\":{\"dimensionName\":\"pageTitle\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"hostName\"},{\"name\":\"pagePath\"},{\"name\":\"pageTitle\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"userEngagementDuration\",\"type\":\"TYPE_SECONDS\"}],\"rowCount\":7,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"\"},{\"value\":\"\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"56\"},{\"value\":\"135\"},{\"value\":\"16\"},{\"value\":\"3634\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/\"},{\"value\":\"Home\"}],\"metricValues\":[{\"value\":\"50\"},{\"value\":\"31\"},{\"value\":\"50\"},{\"value\":\"0\"},{\"value\":\"638\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/blog/iceberg\"},{\"value\":\"Iceberg tables\"}],\"metricValues\":[{\"value\":\"48\"},{\"value\":\"32\"},{\"value\":\"48\"},{\"value\":\"0\"},{\"value\":\"773\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/docs\"},{\"value\":\"Docs\"}],\"metricValues\":[{\"value\":\"45\"},{\"value\":\"29\"},{\"value\":\"45\"},{\"value\":\"0\"},{\"value\":\"709\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/pricing\"},{\"value\":\"Pricing\"}],\"metricValues\":[{\"value\":\"48\"},{\"value\":\"31\"},{\"value\":\"48\"},{\"value\":\"0\"},{\"value\":\"735\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/products/connector-kit\"},{\"value\":\"Connector Kit\"}],\"metricValues\":[{\"value\":\"47\"},{\"value\":\"34\"},{\"value\":\"47\"},{\"value\":\"0\"},{\"value\":\"755\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"example.com\"},{\"value\":\"/signup\"},{\"value\":\"Sign up\"}],\"metricValues\":[{\"value\":\"47\"},{\"value\":\"34\"},{\"value\":\"47\"},{\"value\":\"0\"},{\"value\":\"770\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:20 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"landingPage\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"landingPage\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"391\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "391",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"landingPage\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:21 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"landingPage\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"landingPage\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"391\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "391",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"landingPage\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:21 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"landingPage\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"landingPage\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"391\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "391",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"landingPage\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:22 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"landingPage\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"landingPage\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"391\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "391",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"limit\":100000,\"metrics\":[{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"landingPage\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"landingPage\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":6,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"11\"},{\"value\":\"0\"},{\"value\":\"3\"},{\"value\":\"133\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/blog/iceberg\"}],\"metricValues\":[{\"value\":\"26\"},{\"value\":\"0\"},{\"value\":\"23\"},{\"value\":\"0\"},{\"value\":\"3\"},{\"value\":\"157\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/docs\"}],\"metricValues\":[{\"value\":\"19\"},{\"value\":\"0\"},{\"value\":\"18\"},{\"value\":\"0\"},{\"value\":\"3\"},{\"value\":\"157\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/pricing\"}],\"metricValues\":[{\"value\":\"25\"},{\"value\":\"0\"},{\"value\":\"23\"},{\"value\":\"0\"},{\"value\":\"5\"},{\"value\":\"261\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/products/connector-kit\"}],\"metricValues\":[{\"value\":\"15\"},{\"value\":\"0\"},{\"value\":\"14\"},{\"value\":\"0\"},{\"value\":\"0\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"/signup\"}],\"metricValues\":[{\"value\":\"21\"},{\"value\":\"0\"},{\"value\":\"19\"},{\"value\":\"0\"},{\"value\":\"2\"},{\"value\":\"104\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:23 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"eventName\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"eventValue\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"eventName\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"339\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "339",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"limit\":100000,\"metrics\":[{\"name\":\"eventCount\"},{\"name\":\"totalUsers\"},{\"name\":\"eventValue\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"eventName\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventValue\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:23 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"eventName\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"eventValue\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"eventName\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"339\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "339",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"limit\":100000,\"metrics\":[{\"name\":\"eventCount\"},{\"name\":\"totalUsers\"},{\"name\":\"eventValue\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"eventName\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventValue\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:24 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"eventName\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"eventValue\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"eventName\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"339\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "339",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"limit\":100000,\"metrics\":[{\"name\":\"eventCount\"},{\"name\":\"totalUsers\"},{\"name\":\"eventValue\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"eventName\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventValue\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:24 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"eventName\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"eventCount\\\"},{\\\"name\\\":\\\"totalUsers\\\"},{\\\"name\\\":\\\"eventValue\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"eventName\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"339\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "339",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"limit\":100000,\"metrics\":[{\"name\":\"eventCount\"},{\"name\":\"totalUsers\"},{\"name\":\"eventValue\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"eventName\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"eventName\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"eventCount\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"totalUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"eventValue\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}],\"rowCount\":6,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"0\"},{\"value\":\"54\"},{\"value\":\"0\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"add_to_cart\"}],\"metricValues\":[{\"value\":\"28\"},{\"value\":\"21\"},{\"value\":\"1320\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"page_view\"}],\"metricValues\":[{\"value\":\"285\"},{\"value\":\"60\"},{\"value\":\"0\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"purchase\"}],\"metricValues\":[{\"value\":\"16\"},{\"value\":\"16\"},{\"value\":\"812\"},{\"value\":\"16\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"sign_up\"}],\"metricValues\":[{\"value\":\"50\"},{\"value\":\"38\"},{\"value\":\"0\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"view_item\"}],\"metricValues\":[{\"value\":\"41\"},{\"value\":\"28\"},{\"value\":\"1881\"},{\"value\":\"0\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:25 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"country\\\"},{\\\"name\\\":\\\"region\\\"},{\\\"name\\\":\\\"city\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"country\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"region\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"city\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"497\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "497",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"country\"}},{\"dimension\":{\"dimensionName\":\"region\"}},{\"dimension\":{\"dimensionName\":\"city\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:26 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"country\\\"},{\\\"name\\\":\\\"region\\\"},{\\\"name\\\":\\\"city\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"country\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"region\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"city\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"497\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "497",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"country\"}},{\"dimension\":{\"dimensionName\":\"region\"}},{\"dimension\":{\"dimensionName\":\"city\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:26 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"country\\\"},{\\\"name\\\":\\\"region\\\"},{\\\"name\\\":\\\"city\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"country\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"region\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"city\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"497\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "497",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"country\"}},{\"dimension\":{\"dimensionName\":\"region\"}},{\"dimension\":{\"dimensionName\":\"city\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:27 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"country\\\"},{\\\"name\\\":\\\"region\\\"},{\\\"name\\\":\\\"city\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"keyEvents\\\"},{\\\"name\\\":\\\"totalRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"country\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"region\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"city\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"497\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "497",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"keyEvents\"},{\"name\":\"totalRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"country\"}},{\"dimension\":{\"dimensionName\":\"region\"}},{\"dimension\":{\"dimensionName\":\"city\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"country\"},{\"name\":\"region\"},{\"name\":\"city\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"},{\"name\":\"totalRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":5,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"Germany\"},{\"value\":\"Berlin\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"16\"},{\"value\":\"0\"},{\"value\":\"33\"},{\"value\":\"0\"},{\"value\":\"5\"},{\"value\":\"191\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"India\"},{\"value\":\"Maharashtra\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"27\"},{\"value\":\"0\"},{\"value\":\"4\"},{\"value\":\"232\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"United Kingdom\"},{\"value\":\"England\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"11\"},{\"value\":\"0\"},{\"value\":\"21\"},{\"value\":\"0\"},{\"value\":\"4\"},{\"value\":\"326\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"United States\"},{\"value\":\"California\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"23\"},{\"value\":\"0\"},{\"value\":\"1\"},{\"value\":\"29\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"United States\"},{\"value\":\"New York\"},{\"value\":\"\"}],\"metricValues\":[{\"value\":\"7\"},{\"value\":\"0\"},{\"value\":\"15\"},{\"value\":\"0\"},{\"value\":\"2\"},{\"value\":\"34\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:27 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"deviceCategory\\\"},{\\\"name\\\":\\\"platform\\\"},{\\\"name\\\":\\\"operatingSystem\\\"},{\\\"name\\\":\\\"browser\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"deviceCategory\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"platform\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"operatingSystem\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"browser\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"601\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "601",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"deviceCategory\"}},{\"dimension\":{\"dimensionName\":\"platform\"}},{\"dimension\":{\"dimensionName\":\"operatingSystem\"}},{\"dimension\":{\"dimensionName\":\"browser\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:28 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"deviceCategory\\\"},{\\\"name\\\":\\\"platform\\\"},{\\\"name\\\":\\\"operatingSystem\\\"},{\\\"name\\\":\\\"browser\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"deviceCategory\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"platform\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"operatingSystem\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"browser\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"601\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "601",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"deviceCategory\"}},{\"dimension\":{\"dimensionName\":\"platform\"}},{\"dimension\":{\"dimensionName\":\"operatingSystem\"}},{\"dimension\":{\"dimensionName\":\"browser\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:29 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"deviceCategory\\\"},{\\\"name\\\":\\\"platform\\\"},{\\\"name\\\":\\\"operatingSystem\\\"},{\\\"name\\\":\\\"browser\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"deviceCategory\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"platform\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"operatingSystem\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"browser\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"601\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "601",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"deviceCategory\"}},{\"dimension\":{\"dimensionName\":\"platform\"}},{\"dimension\":{\"dimensionName\":\"operatingSystem\"}},{\"dimension\":{\"dimensionName\":\"browser\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:29 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"deviceCategory\\\"},{\\\"name\\\":\\\"platform\\\"},{\\\"name\\\":\\\"operatingSystem\\\"},{\\\"name\\\":\\\"browser\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"activeUsers\\\"},{\\\"name\\\":\\\"newUsers\\\"},{\\\"name\\\":\\\"sessions\\\"},{\\\"name\\\":\\\"engagedSessions\\\"},{\\\"name\\\":\\\"screenPageViews\\\"},{\\\"name\\\":\\\"keyEvents\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"deviceCategory\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"platform\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"operatingSystem\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"browser\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"601\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "601",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"limit\":100000,\"metrics\":[{\"name\":\"activeUsers\"},{\"name\":\"newUsers\"},{\"name\":\"sessions\"},{\"name\":\"engagedSessions\"},{\"name\":\"screenPageViews\"},{\"name\":\"keyEvents\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"deviceCategory\"}},{\"dimension\":{\"dimensionName\":\"platform\"}},{\"dimension\":{\"dimensionName\":\"operatingSystem\"}},{\"dimension\":{\"dimensionName\":\"browser\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"deviceCategory\"},{\"name\":\"platform\"},{\"name\":\"operatingSystem\"},{\"name\":\"browser\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"activeUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"newUsers\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"sessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"engagedSessions\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"screenPageViews\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"keyEvents\",\"type\":\"TYPE_FLOAT\"}],\"rowCount\":5,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"desktop\"},{\"value\":\"web\"},{\"value\":\"Windows\"},{\"value\":\"Edge\"}],\"metricValues\":[{\"value\":\"12\"},{\"value\":\"0\"},{\"value\":\"27\"},{\"value\":\"0\"},{\"value\":\"70\"},{\"value\":\"3\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"desktop\"},{\"value\":\"web\"},{\"value\":\"macOS\"},{\"value\":\"Chrome\"}],\"metricValues\":[{\"value\":\"11\"},{\"value\":\"0\"},{\"value\":\"20\"},{\"value\":\"0\"},{\"value\":\"45\"},{\"value\":\"0\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"mobile\"},{\"value\":\"web\"},{\"value\":\"Android\"},{\"value\":\"Chrome\"}],\"metricValues\":[{\"value\":\"11\"},{\"value\":\"0\"},{\"value\":\"26\"},{\"value\":\"0\"},{\"value\":\"60\"},{\"value\":\"6\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"mobile\"},{\"value\":\"web\"},{\"value\":\"iOS\"},{\"value\":\"Safari\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"24\"},{\"value\":\"0\"},{\"value\":\"53\"},{\"value\":\"4\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"tablet\"},{\"value\":\"web\"},{\"value\":\"iOS\"},{\"value\":\"Safari\"}],\"metricValues\":[{\"value\":\"13\"},{\"value\":\"0\"},{\"value\":\"22\"},{\"value\":\"0\"},{\"value\":\"57\"},{\"value\":\"3\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:30 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-17\\\",\\\"startDate\\\":\\\"2026-10-17\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"itemId\\\"},{\\\"name\\\":\\\"itemName\\\"},{\\\"name\\\":\\\"itemBrand\\\"},{\\\"name\\\":\\\"itemCategory\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"itemsViewed\\\"},{\\\"name\\\":\\\"itemsAddedToCart\\\"},{\\\"name\\\":\\\"itemsPurchased\\\"},{\\\"name\\\":\\\"itemRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemId\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemBrand\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemCategory\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"545\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "545",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-17\",\"startDate\":\"2026-10-17\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"limit\":100000,\"metrics\":[{\"name\":\"itemsViewed\"},{\"name\":\"itemsAddedToCart\"},{\"name\":\"itemsPurchased\"},{\"name\":\"itemRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"itemId\"}},{\"dimension\":{\"dimensionName\":\"itemName\"}},{\"dimension\":{\"dimensionName\":\"itemBrand\"}},{\"dimension\":{\"dimensionName\":\"itemCategory\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"itemsViewed\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsAddedToCart\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsPurchased\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:30 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-18\\\",\\\"startDate\\\":\\\"2026-10-18\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"itemId\\\"},{\\\"name\\\":\\\"itemName\\\"},{\\\"name\\\":\\\"itemBrand\\\"},{\\\"name\\\":\\\"itemCategory\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"itemsViewed\\\"},{\\\"name\\\":\\\"itemsAddedToCart\\\"},{\\\"name\\\":\\\"itemsPurchased\\\"},{\\\"name\\\":\\\"itemRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemId\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemBrand\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemCategory\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"545\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "545",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-18\",\"startDate\":\"2026-10-18\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"limit\":100000,\"metrics\":[{\"name\":\"itemsViewed\"},{\"name\":\"itemsAddedToCart\"},{\"name\":\"itemsPurchased\"},{\"name\":\"itemRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"itemId\"}},{\"dimension\":{\"dimensionName\":\"itemName\"}},{\"dimension\":{\"dimensionName\":\"itemBrand\"}},{\"dimension\":{\"dimensionName\":\"itemCategory\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"itemsViewed\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsAddedToCart\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsPurchased\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:31 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-19\\\",\\\"startDate\\\":\\\"2026-10-19\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"itemId\\\"},{\\\"name\\\":\\\"itemName\\\"},{\\\"name\\\":\\\"itemBrand\\\"},{\\\"name\\\":\\\"itemCategory\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"itemsViewed\\\"},{\\\"name\\\":\\\"itemsAddedToCart\\\"},{\\\"name\\\":\\\"itemsPurchased\\\"},{\\\"name\\\":\\\"itemRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemId\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemBrand\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemCategory\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"545\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "545",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-19\",\"startDate\":\"2026-10-19\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"limit\":100000,\"metrics\":[{\"name\":\"itemsViewed\"},{\"name\":\"itemsAddedToCart\"},{\"name\":\"itemsPurchased\"},{\"name\":\"itemRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"itemId\"}},{\"dimension\":{\"dimensionName\":\"itemName\"}},{\"dimension\":{\"dimensionName\":\"itemBrand\"}},{\"dimension\":{\"dimensionName\":\"itemCategory\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"itemsViewed\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsAddedToCart\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsPurchased\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemRevenue\",\"type\":\"TYPE_CURRENCY\"}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:31 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        },
+        "{\"body\":\"{\\\"dateRanges\\\":[{\\\"endDate\\\":\\\"2026-10-20\\\",\\\"startDate\\\":\\\"2026-10-20\\\"}],\\\"dimensions\\\":[{\\\"name\\\":\\\"date\\\"},{\\\"name\\\":\\\"itemId\\\"},{\\\"name\\\":\\\"itemName\\\"},{\\\"name\\\":\\\"itemBrand\\\"},{\\\"name\\\":\\\"itemCategory\\\"}],\\\"limit\\\":100000,\\\"metrics\\\":[{\\\"name\\\":\\\"itemsViewed\\\"},{\\\"name\\\":\\\"itemsAddedToCart\\\"},{\\\"name\\\":\\\"itemsPurchased\\\"},{\\\"name\\\":\\\"itemRevenue\\\"}],\\\"offset\\\":0,\\\"orderBys\\\":[{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"date\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemId\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemName\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemBrand\\\"}},{\\\"dimension\\\":{\\\"dimensionName\\\":\\\"itemCategory\\\"}}]}\",\"headers\":{\"accept\":\"application/json\",\"content-length\":\"545\",\"content-type\":\"application/json\"},\"method\":\"POST\",\"url\":\"https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport\"}": {
+          "request": {
+            "method": "POST",
+            "url": "https://analyticsdata.googleapis.com/v1beta/properties/559759765:runReport",
+            "headers": {
+              "content-type": "application/json",
+              "content-length": "545",
+              "accept": "application/json"
+            },
+            "body": "{\"dateRanges\":[{\"endDate\":\"2026-10-20\",\"startDate\":\"2026-10-20\"}],\"dimensions\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"limit\":100000,\"metrics\":[{\"name\":\"itemsViewed\"},{\"name\":\"itemsAddedToCart\"},{\"name\":\"itemsPurchased\"},{\"name\":\"itemRevenue\"}],\"offset\":0,\"orderBys\":[{\"dimension\":{\"dimensionName\":\"date\"}},{\"dimension\":{\"dimensionName\":\"itemId\"}},{\"dimension\":{\"dimensionName\":\"itemName\"}},{\"dimension\":{\"dimensionName\":\"itemBrand\"}},{\"dimension\":{\"dimensionName\":\"itemCategory\"}}]}"
+          },
+          "response": {
+            "status": 200,
+            "body": "{\"dimensionHeaders\":[{\"name\":\"date\"},{\"name\":\"itemId\"},{\"name\":\"itemName\"},{\"name\":\"itemBrand\"},{\"name\":\"itemCategory\"}],\"kind\":\"analyticsData#runReport\",\"metadata\":{\"currencyCode\":\"USD\",\"schemaRestrictionResponse\":{},\"timeZone\":\"America/Los_Angeles\"},\"metricHeaders\":[{\"name\":\"itemsViewed\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsAddedToCart\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemsPurchased\",\"type\":\"TYPE_INTEGER\"},{\"name\":\"itemRevenue\",\"type\":\"TYPE_CURRENCY\"}],\"rowCount\":3,\"rows\":[{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"SKU-1\"},{\"value\":\"Starter plan\"},{\"value\":\"Airfoil\"},{\"value\":\"Plans\"}],\"metricValues\":[{\"value\":\"15\"},{\"value\":\"10\"},{\"value\":\"7\"},{\"value\":\"203\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"SKU-2\"},{\"value\":\"Team plan\"},{\"value\":\"Airfoil\"},{\"value\":\"Plans\"}],\"metricValues\":[{\"value\":\"14\"},{\"value\":\"10\"},{\"value\":\"6\"},{\"value\":\"594\"}]},{\"dimensionValues\":[{\"value\":\"20261020\"},{\"value\":\"SKU-3\"},{\"value\":\"Sticker pack\"},{\"value\":\"Airfoil\"},{\"value\":\"Merch\"}],\"metricValues\":[{\"value\":\"12\"},{\"value\":\"8\"},{\"value\":\"3\"},{\"value\":\"15\"}]}]}",
+            "headers": {
+              "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+              "content-encoding": "gzip",
+              "content-type": "application/json; charset=UTF-8",
+              "date": "Wed, 21 Oct 2026 16:16:32 GMT",
+              "server": "ESF",
+              "transfer-encoding": "chunked",
+              "vary": "Origin, X-Origin, Referer",
+              "x-content-type-options": "nosniff",
+              "x-frame-options": "SAMEORIGIN",
+              "x-xss-protection": "0"
+            }
+          }
+        }
+      }
+    }
+  }
+}
