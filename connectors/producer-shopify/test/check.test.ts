@@ -4,6 +4,7 @@ import { ConfigProvider, Effect, Layer, Ref } from "effect";
 
 import type { ShopifyApiClientService } from "../src/api/client";
 
+import { demo } from "../src/demo";
 import { ShopifyApiClient, ShopifyConnector } from "../src/index";
 import { tableSchemas } from "../src/tables";
 
@@ -50,6 +51,15 @@ describe("producer-shopify configuration checks", () => {
       );
       for (const resource of connector.resources) {
         expect(tableSchemas[resource.name]).toBe(resource.rowSchema);
+      }
+      const demoTables = [...demo.setup.tables, ...demo.group.tables];
+      expect(demoTables.map((table) => table.name).toSorted()).toEqual(
+        Object.keys(tableSchemas).toSorted(),
+      );
+      for (const table of demoTables) {
+        const resource = connector.resources.find((item) => item.name === table.name);
+        expect(table.rowSchema).toBe(resource?.rowSchema);
+        expect(table.version).toBe(resource?.version);
       }
       expect(result).toEqual({
         products: { _tag: "ok" },

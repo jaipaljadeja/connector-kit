@@ -67,6 +67,15 @@ connector uses.
 - After backfill, updates depend on webhooks. Missed webhook deliveries are not
   recovered yet.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Shopify data without Shopify
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Each customer has orders, refunds, and sometimes an open cart. Orders and carts
+use a fixed catalog of 10 products, which doesn't grow with the size.
+
 ## Local development
 
 ```bash
