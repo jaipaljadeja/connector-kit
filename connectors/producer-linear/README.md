@@ -49,6 +49,17 @@ uses a webhook for archives, deletes, and restores.
 - Archive, trash, and restore don't change `updatedAt`, so only the webhook
   sees them. Linear retries a webhook 3 times over about 7 hours.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Linear data without Linear credentials.
+See the Connector Kit README for the flags and the variables it needs.
+
+Each issue has its history, comments, and sometimes a relation, a GitHub pull
+request, a customer request, and a release. The workspace is written once and
+doesn't grow with the size: 4 teams with their workflow states, 16 users,
+two-week cycles, 8 projects with milestones, updates, and specs, 3 initiatives,
+12 customers, and a year of monthly releases.
+
 ## Local development
 
 ```bash
