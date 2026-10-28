@@ -3,6 +3,7 @@ import { ConnectorApp } from "@useairfoil/connector-kit";
 import { Effect, Option, Ref } from "effect";
 import { TestClock } from "effect/testing";
 
+import { demo } from "../src/demo";
 import { HubSpotConnector, manifest } from "../src/index";
 import { tableSchemas } from "../src/tables";
 import {
@@ -117,6 +118,15 @@ describe("resources", () => {
       );
       for (const resource of connector.resources) {
         expect(tableSchemas[resource.name]).toBe(resource.rowSchema);
+      }
+      const demoTables = [...demo.setup.tables, ...demo.group.tables];
+      expect(demoTables.map((table) => table.name).toSorted()).toEqual(
+        Object.keys(tableSchemas).toSorted(),
+      );
+      for (const table of demoTables) {
+        const resource = connector.resources.find((item) => item.name === table.name);
+        expect(table.rowSchema).toBe(resource?.rowSchema);
+        expect(table.version).toBe(resource?.version);
       }
     }),
   );
