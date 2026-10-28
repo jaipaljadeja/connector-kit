@@ -53,6 +53,17 @@ again, because Google keeps updating them.
   data can arrive up to 7 days late, and key event credit can change for 12
   days.
 
+## Demo data
+
+`pnpm demo --size 8MiB` writes made-up Google Analytics data without Google
+Analytics credentials. See the Connector Kit README for the flags and the
+variables it needs.
+
+Each group is one day of every report, counting back from yesterday, for a
+made-up online store. It stops after two years, about 9 MiB. Traffic sources,
+locations, and devices add up to the day's sessions, and traffic dips at
+weekends.
+
 ## Local development
 
 ```bash

@@ -2,6 +2,7 @@ import { describe, expect, it } from "@effect/vitest";
 import { Effect, Option } from "effect";
 import { TestClock } from "effect/testing";
 
+import { demo } from "../src/demo";
 import { GoogleAnalyticsConnector, manifest } from "../src/index";
 import { tableSchemas } from "../src/tables";
 import { report, trafficSourceRows } from "./fixtures/reports";
@@ -50,6 +51,15 @@ describe("resources", () => {
         manifest.resources.map((item) => item.name),
       );
       expect(Object.keys(tableSchemas)).toEqual(manifest.resources.map((item) => item.name));
+      const demoTables = [...demo.setup.tables, ...demo.group.tables];
+      expect(demoTables.map((table) => table.name).toSorted()).toEqual(
+        Object.keys(tableSchemas).toSorted(),
+      );
+      for (const table of demoTables) {
+        const resource = connector.resources.find((item) => item.name === table.name);
+        expect(table.rowSchema).toBe(resource?.rowSchema);
+        expect(table.version).toBe(resource?.version);
+      }
     }),
   );
 
