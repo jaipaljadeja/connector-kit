@@ -48,6 +48,10 @@ Iceberg fields:
 []
 ```
 
+## Demo data
+
+What one demo group is, what is written once, and any history limit.
+
 ## Connector Kit gaps
 
 What is missing and which resource needs it.

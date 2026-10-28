@@ -27,6 +27,11 @@
       "import": "./dist/connector-app/index.mjs",
       "default": "./dist/connector-app/index.mjs"
     },
+    "./demo": {
+      "types": "./dist/demo/index.d.mts",
+      "import": "./dist/demo/index.mjs",
+      "default": "./dist/demo/index.mjs"
+    },
     "./iceberg": {
       "types": "./dist/iceberg/index.d.mts",
       "import": "./dist/iceberg/index.mjs",
@@ -86,6 +91,7 @@
   },
   "dependencies": {
     "@effect/platform-node": "catalog:",
+    "@faker-js/faker": "10.6.0",
     "@useairfoil/wings": "workspace:*",
     "apache-arrow": "catalog:",
     "iceberg-js": "catalog:"

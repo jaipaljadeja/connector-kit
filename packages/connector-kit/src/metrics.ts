@@ -14,7 +14,7 @@ import type { SyncState } from "./core/types";
 
 import { Attr } from "./telemetry";
 
-export type BatchSource = "backfill" | "changes" | "webhook";
+export type BatchSource = "backfill" | "changes" | "webhook" | "demo";
 export type BatchOutcome = "success" | "error";
 export type ApiRetryReason = "transport" | "timeout" | "rate_limit" | "server_error";
 export type WebhookOutcome =

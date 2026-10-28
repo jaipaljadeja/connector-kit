@@ -2,7 +2,7 @@ import type { TableIdentifier } from "iceberg-js";
 
 import { Config, Effect, Schema } from "effect";
 
-import type { ConnectorDefinition, ResourceName } from "../core/types";
+import type { TableSource } from "../core/types";
 
 import { PlatformRuntimeKey } from "./constants";
 import { RuntimeConfigError } from "./error";
@@ -10,8 +10,8 @@ import { RuntimeConfigError } from "./error";
 /** An Iceberg table and its storage location for each connector resource. */
 export type TableBinding = TableIdentifier & { readonly location?: string | undefined };
 
-export type ResolvedTableBindings<Connector extends ConnectorDefinition> = Readonly<
-  Partial<Record<ResourceName<Connector["resources"]>, TableBinding>>
+export type ResolvedTableBindings<Source extends TableSource> = Readonly<
+  Partial<Record<Source["resources"][number]["name"], TableBinding>>
 >;
 
 const TableIdentifierSchema = Schema.Struct({
@@ -31,9 +31,9 @@ const fail = (code: "TABLE_BINDINGS_INVALID" | "TABLE_BINDINGS_MISMATCH", messag
   new RuntimeConfigError({ code, message, cause: new Error(message) });
 
 /** Reads hosted table bindings and checks they name resources of the connector. */
-export const loadTableBindings = <const Connector extends ConnectorDefinition>(
-  connector: Connector,
-): Effect.Effect<ResolvedTableBindings<Connector>, RuntimeConfigError> =>
+export const loadTableBindings = <const Source extends TableSource>(
+  connector: Source,
+): Effect.Effect<ResolvedTableBindings<Source>, RuntimeConfigError> =>
   Effect.gen(function* () {
     const raw = yield* Config.NonEmptyString(PlatformRuntimeKey.tableBindings).pipe(
       Effect.mapError(
@@ -88,5 +88,5 @@ export const loadTableBindings = <const Connector extends ConnectorDefinition>(
           ...(identifier.location === undefined ? {} : { location: identifier.location }),
         },
       ]),
-    ) as ResolvedTableBindings<Connector>;
+    ) as ResolvedTableBindings<Source>;
   });

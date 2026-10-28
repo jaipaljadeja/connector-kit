@@ -170,7 +170,10 @@ describe("Resource", () => {
         exclusiveMinimum: true,
         maximum: 10,
         exclusiveMaximum: true,
-        allOf: [{ minimum: -2_147_483_648, maximum: 2_147_483_647 }],
+        allOf: [
+          { minimum: Number.MIN_SAFE_INTEGER, maximum: Number.MAX_SAFE_INTEGER },
+          { minimum: -2_147_483_648, maximum: 2_147_483_647 },
+        ],
       });
     });
   });

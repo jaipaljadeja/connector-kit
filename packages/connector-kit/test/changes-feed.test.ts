@@ -31,7 +31,10 @@ const ingestorLayer = (
 ) =>
   Layer.succeed(Ingestor)({
     resourceNames,
-    ingest: (options) => Ref.update(ingested, (current) => [...current, options]),
+    ingest: (options) =>
+      Ref.update(ingested, (current) => [...current, options]).pipe(
+        Effect.as({ rows: options.batch.rows.length, bytes: 0 }),
+      ),
   });
 
 // Runs the connector until `done` resolves, then returns ingests and state.
@@ -253,10 +256,10 @@ describe("changes feed", () => {
         }),
       });
       const failingIngestor = Layer.succeed(Ingestor)({
-        ingest: ({ resource }) =>
+        ingest: ({ resource, batch }) =>
           resource === "orders"
             ? Effect.fail(new ConnectorError({ message: "schema mismatch" }))
-            : Effect.void,
+            : Effect.succeed({ rows: batch.rows.length, bytes: 0 }),
       });
       const notifyingStore = Layer.effect(StateStore)(
         StateStore.pipe(

@@ -99,6 +99,7 @@ export const makeTestIngestor = (expected: number) =>
           if (next.length === expected) {
             yield* Deferred.succeed(done, next.length);
           }
+          return { rows: batch.rows.length, bytes: 0 };
         }),
     });
 

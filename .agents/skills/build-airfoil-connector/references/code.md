@@ -16,6 +16,7 @@ src/
   manifest.ts
   connector.ts
   create-table.ts
+  demo/          demo data and command
   client/        API client, auth, errors
   schemas/       one file per resource, plus shared fields
   resources/     one file per resource
@@ -51,6 +52,35 @@ command with `ConnectorApp.makeCreateTableCommand`. Add it to the main CLI.
 
 Hosted startup creates missing tables from the same schemas and checks the
 schema of existing tables. It does not migrate schema changes.
+
+## Demo
+
+`src/demo/` builds made-up rows for every resource with `Demo.define`. The
+template has the smallest one. See the Connector Kit README "Demo data" section,
+and Stripe for one with setup tables.
+
+- `index.ts` defines the demo with `Demo.define` and exports `demoCommand` for
+  the main CLI.
+- `shared.ts` has the IDs, constants, row types, and `clock`.
+- `setup.ts` has `setupRows`, the rows written once.
+- One file has the group, named after it, such as `customers.ts`. When it grows
+  past about 400 lines, move each area to its own file, as Salesforce does with
+  contacts and cases. The area functions take one typed group object, such as
+  `AccountGroup`, with the run's tools, the rows, and what they need to know.
+
+The run shares one seeded Faker, so moving a call changes the data and the
+snapshots.
+
+- Rows should look like the provider's: real ID formats, statuses, and units.
+  Keys come from the group index, and links point to rows that exist.
+- Put fixed setup, such as a catalog, in the `setup` tables. One group is one
+  related unit, such as a customer and their orders.
+- Name the functions like the other connectors: `setupRows` for the setup
+  rows, `<unit>Rows(index, context)` for a group, with a "One group is" JSDoc,
+  and `clock(context)` for dates that must not pass the run time.
+- If the provider only keeps so much history, set `group.count`.
+- Test that every link resolves, and that the demo tables match the resources.
+- Add a short "Demo data" section to the README.
 
 ## Effect
 

@@ -116,9 +116,9 @@ describe("Wings ingestor adapter", () => {
   it.effect("loads native bindings and reuses one full-schema stream", () =>
     Effect.gen(function* () {
       const refs = yield* makeTest;
-      yield* useIngestor(refs, (ingestor) =>
+      const first = yield* useIngestor(refs, (ingestor) =>
         Effect.gen(function* () {
-          yield* ingestor.ingest({
+          const result = yield* ingestor.ingest({
             resource: "products",
             source: "backfill",
             batch: { rows: [{ count: 2, id: "p1", version: 1n }] },
@@ -133,6 +133,7 @@ describe("Wings ingestor adapter", () => {
             source: "webhook",
             batch: { rows: [{ id: "p1", version: 3n, _deleted: true }] },
           });
+          return result;
         }),
       );
 
@@ -154,6 +155,8 @@ describe("Wings ingestor adapter", () => {
         ]);
       }
 
+      // Bytes are the encoded batch, counted once Wings acknowledges it.
+      expect(first).toEqual({ rows: 1, bytes: batches[0]?.data.byteLength });
       expect(batches[1]?.getChild("count")?.get(0)).toBeNull();
       expect(batches[2]?.getChild("_deleted")?.get(0)).toBe(true);
     }),
@@ -162,10 +165,11 @@ describe("Wings ingestor adapter", () => {
   it.effect("does not push empty batches", () =>
     Effect.gen(function* () {
       const refs = yield* makeTest;
-      yield* useIngestor(refs, (ingestor) =>
+      const result = yield* useIngestor(refs, (ingestor) =>
         ingestor.ingest({ resource: "products", source: "backfill", batch: { rows: [] } }),
       );
 
+      expect(result).toEqual({ rows: 0, bytes: 0 });
       expect(yield* Ref.get(refs.pushed)).toEqual([]);
     }),
   );

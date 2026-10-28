@@ -5,7 +5,7 @@ This package gives an Effect API for the `iceberg-js` REST catalog client.
 ## Install
 
 ```bash
-pnpm add @useairfoil/effect-iceberg effect@rc iceberg-js
+pnpm add @useairfoil/effect-iceberg effect@^4 iceberg-js
 ```
 
 ## Usage

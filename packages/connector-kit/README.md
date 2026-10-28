@@ -5,7 +5,7 @@ Use this package to build an Airfoil producer connector.
 ## Install
 
 ```bash
-pnpm add @useairfoil/connector-kit effect@rc
+pnpm add @useairfoil/connector-kit effect@^4
 ```
 
 ## Usage
@@ -123,6 +123,34 @@ Use only lowercase letters, numbers, and underscores in table names. S3 Tables
 catalogs reject other characters, such as `-`.
 
 The HTTP server has `/health`, `/status`, and `/metrics` endpoints.
+
+## Demo data
+
+A connector with a demo has a `demo` command. It writes made-up rows to
+the bound tables, then exits. It needs no provider credentials and no
+PostgreSQL state.
+
+```bash
+producer-stripe demo --size 128MiB --seed 42
+```
+
+- `--size` is the uncompressed Arrow size to write, such as `512KiB`, `128MiB`,
+  or `1GiB`. The run can go over by one chunk of groups, about 1 MiB with the
+  current connectors.
+- `--seed` picks the data. Dates depend on when the run starts, so two runs
+  with the same seed match only if they start at the same time and bind the
+  same tables.
+- Setup tables, written once, such as a product catalog, don't grow. If only
+  those are bound, the run writes them once and stops below the size. Demos
+  with limited history, such as daily reports, also stop when they run out.
+- It needs `AIRFOIL_CONFIG_PATH`, `WINGS_URI`, `AIRFOIL_CATALOG`, and
+  `AIRFOIL_TABLE_BINDINGS`. An empty `{}` config file is enough.
+
+A demo lists its `setup` and `group` tables and builds their rows with
+`Demo.define`. Build keys from the group index, so they are unique and other
+rows can point to them. Required fields a row leaves out get placeholder values
+from the row schema. Every row is checked against its row schema before it's
+written.
 
 ## Iceberg field IDs
 

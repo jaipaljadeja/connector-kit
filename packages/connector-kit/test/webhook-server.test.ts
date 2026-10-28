@@ -42,7 +42,7 @@ const makeIngestorLayer = (
           Effect.tap(() =>
             count >= expectedIngestions ? Deferred.succeed(done, undefined) : Effect.void,
           ),
-          Effect.asVoid,
+          Effect.as({ rows: options.batch.rows.length, bytes: 0 }),
         ),
     });
     return { done, layer };

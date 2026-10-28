@@ -5,7 +5,7 @@ import * as Wings from "@useairfoil/wings";
 import { Config, Effect, Layer } from "effect";
 import { FetchHttpClient } from "effect/http";
 
-import type { ConnectorDefinition } from "../core/types";
+import type { TableSource } from "../core/types";
 
 import { ensureTable } from "../catalog/table";
 import { ConnectorError } from "../errors";
@@ -14,10 +14,10 @@ import { makeRowEncoder, type RowEncoder } from "./arrow";
 import { Ingestor, type IngestorService } from "./service";
 
 /** One catalog and an Iceberg table for each resource that runs. */
-export type WingsIngestorConfig<Connector extends ConnectorDefinition = ConnectorDefinition> = {
-  readonly connector: Connector;
+export type WingsIngestorConfig<Source extends TableSource = TableSource> = {
+  readonly connector: Source;
   readonly catalog: string;
-  readonly tables: RuntimeConfig.ResolvedTableBindings<Connector>;
+  readonly tables: RuntimeConfig.ResolvedTableBindings<Source>;
 };
 
 type IngestorEntry = {
@@ -34,8 +34,8 @@ type PreparedTable = {
 const connectorError = (message: string, cause?: unknown) => new ConnectorError({ message, cause });
 
 /** Loads each table schema and opens one Wings stream per bound resource. */
-export const layerWings = <const Connector extends ConnectorDefinition>(
-  config: WingsIngestorConfig<Connector>,
+export const layerWings = <const Source extends TableSource>(
+  config: WingsIngestorConfig<Source>,
 ): Layer.Layer<Ingestor, ConnectorError, Wings.CatalogManager.CatalogManager> =>
   Layer.effect(Ingestor)(
     Effect.gen(function* () {
@@ -100,9 +100,17 @@ export const layerWings = <const Connector extends ConnectorDefinition>(
           const entry = entries.get(resource);
 
           if (!entry) return Effect.fail(connectorError(`Unknown resource ${resource}`));
-          if (batch.rows.length === 0) return Effect.void;
+          if (batch.rows.length === 0) return Effect.succeed({ rows: 0, bytes: 0 });
 
-          return entry.encode(batch.rows).pipe(Effect.flatMap(entry.push));
+          return entry
+            .encode(batch.rows)
+            .pipe(
+              Effect.flatMap((encoded) =>
+                entry
+                  .push(encoded)
+                  .pipe(Effect.as({ rows: batch.rows.length, bytes: encoded.data.byteLength })),
+              ),
+            );
         },
       };
 
@@ -111,7 +119,7 @@ export const layerWings = <const Connector extends ConnectorDefinition>(
   );
 
 /** Reads the Wings URL, catalog and table bindings from hosted config. */
-export const layerWingsConfig = (connector: ConnectorDefinition) =>
+export const layerWingsConfig = (connector: TableSource) =>
   Layer.unwrap(
     Effect.gen(function* () {
       const { catalog, uri } = yield* Config.all({

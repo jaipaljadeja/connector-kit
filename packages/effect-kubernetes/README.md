@@ -7,7 +7,7 @@ are in `@useairfoil/effect-kubernetes/operator`. Test helpers are in
 ## Install
 
 ```bash
-pnpm add @useairfoil/effect-kubernetes effect@rc @kubernetes/client-node
+pnpm add @useairfoil/effect-kubernetes effect@^4 @kubernetes/client-node
 ```
 
 ## Usage

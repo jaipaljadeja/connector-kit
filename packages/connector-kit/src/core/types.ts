@@ -158,6 +158,14 @@ export type ResourceDefinition<
   readonly webhook?: WebhookHandler<ResourceUpdate<NoInfer<S>, NoInfer<Version>>, Payload>;
 };
 
+/** The parts of a resource its table needs. */
+export type TableResource = Pick<ResourceDefinition, "name" | "rowSchema" | "version">;
+
+/** Resources that write to tables, such as a connector or a demo. */
+export type TableSource = {
+  readonly resources: ReadonlyArray<TableResource>;
+};
+
 /**
  * Takes a connector resource tuple and returns a `{ [resourceName]: rowType }`
  * map.

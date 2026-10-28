@@ -6,7 +6,7 @@ ingestion.
 ## Install
 
 ```bash
-pnpm add @useairfoil/wings effect@rc
+pnpm add @useairfoil/wings effect@^4
 ```
 
 ## Usage

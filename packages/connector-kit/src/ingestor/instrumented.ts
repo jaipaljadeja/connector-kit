@@ -36,7 +36,7 @@ export const ingestBatch = Effect.fnUntraced(function* (options: {
   );
 
   // onError keeps the failure, so the engine still sees it and skips the checkpoint.
-  yield* Effect.withSpan(ingest, SpanName.ingest, { kind: "producer" }).pipe(
+  const result = yield* Effect.withSpan(ingest, SpanName.ingest, { kind: "producer" }).pipe(
     Effect.trackDuration(Metric.withAttributes(Metrics.ingestDuration, metricAttributes)),
     Effect.onError(() => Metric.update(batchOutcome("error"), 1)),
   );
@@ -56,4 +56,6 @@ export const ingestBatch = Effect.fnUntraced(function* (options: {
       [EventAttr.batchCursor]: options.batch.cursor,
     });
   }
+
+  return result;
 });

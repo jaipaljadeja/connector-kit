@@ -58,6 +58,9 @@ the change and ask first.
 Add a short `README.md` and `AGENTS.md` in the same style as the other
 connectors.
 
+Once the resources work, add the demo and the `demo` command. See
+[references/code.md](references/code.md#demo).
+
 Do not add a Beachball change file. We add it ourselves later.
 
 ## Resource rules
@@ -124,8 +127,8 @@ pnpm format
 pnpm lint
 ```
 
-Tests should cover pagination, cutoff, webhook signatures, deletes, and the
-check for each resource where they apply.
+Tests should cover pagination, cutoff, webhook signatures, deletes, the check
+for each resource, and the demo links, where they apply.
 
 Use VCR for API tests. Do not edit cassettes by hand. If credentials are
 missing, keep the tests and give the command to record them later.

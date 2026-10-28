@@ -68,7 +68,8 @@ const description = (annotations: Annotations | undefined): string | undefined =
   return typeof value === "string" ? value : undefined;
 };
 
-const checkHasRepresentation = (
+/** @internal */
+export const checkHasRepresentation = (
   checks: ReadonlyArray<SchemaRepresentation.Check>,
   id: string,
 ): boolean =>

@@ -27,7 +27,7 @@ export const makeFakeClient = (fake: FakeGraph) =>
     const requests = yield* Ref.make<ReadonlyArray<string>>([]);
     const client: FacebookAdsClientService = {
       get: (name, schema, path, input = {}) => {
-        const params = Object.fromEntries(UrlParams.fromInput(input));
+        const params = Object.fromEntries(new URLSearchParams(UrlParams.toString(input)));
         const shown = Object.entries(params)
           .filter(([key]) => !quietParams.has(key))
           .map(([key, value]) => ` ${key}=${value}`)

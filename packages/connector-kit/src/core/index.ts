@@ -23,6 +23,8 @@ export type {
   ResourceState,
   ResourceUpdate,
   ResourceUpdateOf,
+  TableResource,
+  TableSource,
   WebhookAckMode,
   WebhookHandler,
   WebhookRoute,
