@@ -18,7 +18,7 @@ Connector Kit emits standard metrics through Effect metrics. Production runtimes
 
 OTLP attributes use dotted OTel names. Common dimensions are `airfoil.connector.name`, `airfoil.resource.name`, and `airfoil.resource.source`; specialized attributes are `airfoil.batch.outcome`, `airfoil.webhook.path`, `airfoil.webhook.outcome`, `airfoil.connector.sync.state`, and `airfoil.connector.api.retry.reason`. The Prometheus endpoint replaces dots in metric and label names with underscores and does not append `_total`.
 
-Batch `source` is `backfill`, `changes`, or `webhook`. Batch `outcome` is `success` or `error`. Webhook `outcome` is `ok`, `read_error`, `invalid_json`, `invalid_payload`, `rejected`, or `handler_error`. Sync `state` is `pending`, `backfilling`, `live`, or `error`.
+Batch `source` is `backfill`, `changes`, `webhook`, or `demo`. Batch `outcome` is `success` or `error`. Webhook `outcome` is `ok`, `read_error`, `invalid_json`, `invalid_payload`, `rejected`, or `handler_error`. Sync `state` is `pending`, `backfilling`, `live`, or `error`.
 
 API retry `reason` is `transport`, `timeout`, `rate_limit`, or `server_error`. The counter increments only when another request will be attempted. Provider-side limiter waits without a failed request are not retries.
 

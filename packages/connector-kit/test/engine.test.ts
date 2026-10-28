@@ -109,6 +109,7 @@ const makeIngestorLayer = (
     ingest: (options) =>
       Ref.update(ingestedRef, (ingested) => [...ingested, options]).pipe(
         Effect.andThen(ingest(options)),
+        Effect.as({ rows: options.batch.rows.length, bytes: 0 }),
       ),
   });
 
@@ -156,7 +157,10 @@ describe("resource ingestion engine", () => {
             StateStoreLayerMemory,
             Layer.succeed(Ingestor)({
               resourceNames: ["products"],
-              ingest: (options) => Ref.update(ingestedRef, (ingested) => [...ingested, options]),
+              ingest: (options) =>
+                Ref.update(ingestedRef, (ingested) => [...ingested, options]).pipe(
+                  Effect.as({ rows: options.batch.rows.length, bytes: 0 }),
+                ),
             }),
           ),
         ),

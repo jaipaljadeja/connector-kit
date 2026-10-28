@@ -5,7 +5,7 @@ Use this package when a test needs Wings.
 ## Install
 
 ```bash
-pnpm add -D @useairfoil/wings-testing effect@rc
+pnpm add -D @useairfoil/wings-testing effect@^4
 ```
 
 ## Usage

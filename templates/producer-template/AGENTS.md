@@ -13,12 +13,14 @@ Keep these patterns:
 - The sandbox uses memory state and console ingestion.
 - `start` uses hosted config, PostgreSQL state, and Wings ingestion.
 - API tests use VCR.
+- `src/tables.ts` lists the row schemas by resource name, for `create-table`.
+- `src/demo/` has the demo. Its tables match the resources.
 - Changes and webhooks send full rows. Tables with `_deleted` send `true` for
   deletes. If the provider can restore records, other rows send `false`.
 - The image runs as non-root and does not copy `.env` files.
 
 When copying the template, replace the package name, manifest, config, API
-client, schemas, resources, webhook verification, and tests. Add a local
+client, schemas, resources, webhook verification, demo, and tests. Add a local
 `AGENTS.md` with the provider auth, versioning, pagination, rate limits,
 webhook rules, and schema risks.
 

@@ -79,6 +79,8 @@ Provider code stays in its connector. Shared runtime code goes in Connector Kit.
   restore records, send `false` on other rows so a restore comes back.
   Otherwise leave it out.
 - Every resource needs a read-only config check.
+- Every connector has a demo in `src/demo/`. Give each new resource a
+  table there, with realistic rows that link to the other tables.
 - Verify signed webhooks against the raw body.
 - Record API tests with VCR. Don't edit cassettes by hand.
 - `ACK_DISABLE_VCR=*` makes live requests. Don't use it for normal tests.

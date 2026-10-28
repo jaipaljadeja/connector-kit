@@ -6,7 +6,7 @@ the same requests later.
 ## Install
 
 ```bash
-pnpm add -D @useairfoil/effect-vcr @effect/platform-node@rc effect@rc
+pnpm add -D @useairfoil/effect-vcr @effect/platform-node@^4 effect@^4
 ```
 
 ## Usage

@@ -28,6 +28,7 @@
     "docker:build": "docker build --load --file Dockerfile --tag airfoil/producer-template:local ../..",
     "start": "tsx --env-file=.env src/main.ts start",
     "sandbox": "tsx --env-file=.env src/main.ts sandbox",
+    "demo": "tsx src/main.ts demo",
     "test": "dotenvx run --ignore=MISSING_ENV_FILE --quiet -- vitest",
     "test:ci": "dotenvx run --ignore=MISSING_ENV_FILE --quiet -- vitest run",
     "typecheck": "tsc --noEmit"

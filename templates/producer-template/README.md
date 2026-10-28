@@ -9,8 +9,8 @@ provider account. It is not meant to be deployed as-is.
 ## What to replace
 
 Replace the package name, manifest, config, API client, schemas, resources,
-webhook verification, and tests. Keep the sandbox and hosted runtime wiring
-unless the connector needs something different.
+webhook verification, demo, and tests. Keep the sandbox and hosted
+runtime wiring unless the connector needs something different.
 
 ## Local development
 
@@ -21,6 +21,14 @@ pnpm sandbox
 
 Use `pnpm start` for the hosted runtime. It needs the Wings and PostgreSQL
 variables from the Connector Kit README.
+
+## Demo data
+
+`pnpm demo --size 1MiB` writes made-up posts without a provider account. See the
+Connector Kit README for the flags and the variables it needs.
+
+Each group is one post by one of the 10 users. A real connector puts tables
+written once, such as a catalog, in `src/demo/setup.ts`.
 
 ## Configuration
 

@@ -5,7 +5,7 @@ This package has Effect clients for Arrow Flight and Flight SQL.
 ## Install
 
 ```bash
-pnpm add @useairfoil/flight effect@rc
+pnpm add @useairfoil/flight effect@^4
 ```
 
 ## Usage

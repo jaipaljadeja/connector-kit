@@ -89,7 +89,9 @@ describe("connector metrics", () => {
         { count: 2 },
       );
     }).pipe(
-      Effect.provideService(Ingestor, { ingest: () => Effect.void }),
+      Effect.provideService(Ingestor, {
+        ingest: ({ batch }) => Effect.succeed({ rows: batch.rows.length, bytes: 0 }),
+      }),
       Effect.provideService(Metric.MetricRegistry, new Map()),
     ),
   );
