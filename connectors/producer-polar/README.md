@@ -38,6 +38,15 @@ Deleted products stay in the `products` table because Polar has no
 during a backfill because Polar has no stable sort for them. After backfill,
 updates depend on webhooks. Missed webhook deliveries are not recovered yet.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Polar data without a Polar token. See
+the Connector Kit README for the flags and the variables it needs.
+
+Each customer has checkouts, subscriptions, orders, and refunds that point to
+each other and to a fixed catalog of 6 products and 3 discounts. `products` and
+`discounts` don't grow with the size.
+
 ## Local development
 
 The sandbox uses the Polar sandbox API.
