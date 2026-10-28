@@ -3,6 +3,7 @@ import { ConnectorApp } from "@useairfoil/connector-kit";
 import { Effect, Option, Ref } from "effect";
 import { TestClock } from "effect/testing";
 
+import { demo } from "../src/demo";
 import { StripeConnector, manifest } from "../src/index";
 import { tableSchemas } from "../src/tables";
 import { event } from "./fixtures/events";
@@ -77,6 +78,25 @@ describe("resources", () => {
       expect(Object.keys(tableSchemas)).toEqual(connector.resources.map((item) => item.name));
       for (const resource of connector.resources) {
         expect(tableSchemas[resource.name]).toBe(resource.rowSchema);
+      }
+    }),
+  );
+
+  it.effect("matches the demo tables", () =>
+    Effect.gen(function* () {
+      const { client } = yield* makeFakeClient({});
+      const connector = yield* StripeConnector.StripeConnector.pipe(
+        Effect.provide(connectorLayer(client)),
+      );
+      const demoTables = [...demo.setup.tables, ...demo.group.tables];
+
+      expect(demoTables.map((table) => table.name).toSorted()).toEqual(
+        connector.resources.map((resource) => resource.name).toSorted(),
+      );
+      for (const table of demoTables) {
+        const resource = connector.resources.find((item) => item.name === table.name);
+        expect(table.rowSchema).toBe(resource?.rowSchema);
+        expect(table.version).toBe(resource?.version);
       }
     }),
   );
