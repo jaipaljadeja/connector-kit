@@ -50,6 +50,17 @@ own ad accounts. Full access needs App Review, after enough successful calls.
 - A change to the account's attribution setting changes past numbers. Backfill
   again to pick it up.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Facebook Ads data without Meta
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Two ad accounts with their campaigns, ad sets, and ads are written once. Each
+group is one day of insights, counting back from today. It stops at Meta's 37
+months, about 225 MiB. Ads only have insights while their campaign runs, and the
+breakdowns add up to the ad's day.
+
 ## Limits
 
 - Meta limits calls per ad account per hour, based on the access tier and the

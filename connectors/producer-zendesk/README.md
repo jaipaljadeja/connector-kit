@@ -57,6 +57,19 @@ The token uses the permissions of the admin who made the client.
 - A comment made private later stays public in `ticket_comments`. Zendesk's
   event for it has no details. A redacted comment or attachment is read again.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Zendesk data without Zendesk
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Each customer has tickets with comments, field history, metric events, and
+sometimes a satisfaction rating and survey response. The first 12 customers also
+bring the 12 agents. The account setup is written once and doesn't grow with the
+size: brands, groups and group memberships, statuses, fields, forms, roles, SLA
+policies, business hours, macros, the Help Center and community, a Talk line,
+the CSAT survey, and 40 organizations.
+
 ## Local development
 
 ```bash

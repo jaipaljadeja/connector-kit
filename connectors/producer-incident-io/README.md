@@ -117,6 +117,21 @@ One key reads one organization, so run one connector per organization.
 - A webhook that fails is retried for 24 hours. Polling covers longer
   outages.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up incident.io data without incident.io
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Each incident has the alert that started it, an escalation for serious ones,
+status updates with timeline items and activity log entries, participants with
+workloads, actions, and workflow runs. Serious incidents also get a post-mortem,
+follow-ups, a status page notice, and policy findings for late follow-ups. The
+workspace is written once and doesn't grow with the size: users, teams, the
+catalog, severities, statuses, types, roles, custom fields, alerting, on-call
+schedules with shifts, maintenance windows, workflows, the status page, and
+policies.
+
 ## Local development
 
 ```bash

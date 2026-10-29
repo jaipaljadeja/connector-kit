@@ -71,6 +71,20 @@ The connector uses REST API `v68.0` (Winter '27).
   emails, phone numbers, addresses, and message bodies. Treat them as customer
   data.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Salesforce data without Salesforce
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Each account has contacts, opportunities with products, quotes, history, and
+splits, and, once won, a contract, an order, assets, a service contract with
+entitlements, an install visit, and an onboarding project in `custom_objects`.
+Customers open cases with comments, emails, and chats. Accounts also get tasks,
+events, notes, Chatter posts, and a lead. The org setup is written once and
+doesn't grow with the size: users, roles, profiles, permissions, groups, the
+catalog and price book, campaigns, service resources, and `object_fields`.
+
 ## Limits
 
 - Salesforce lists changes for the last 30 days and deletes for the last 15.

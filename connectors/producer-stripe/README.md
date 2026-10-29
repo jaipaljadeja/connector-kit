@@ -84,6 +84,15 @@ Polling uses about 9,000 reads a month, plus one read for each changed object.
 Stripe allows an average of 500 reads per transaction, with at least 10,000 a
 month, so very quiet accounts can go over and get throttled.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up Stripe data without a Stripe key. See
+the Connector Kit README for the flags and the variables it needs.
+
+Each customer has subscriptions, invoices, charges, and refunds that point to
+each other and to a fixed catalog of 8 products and 24 prices. `products` and
+`prices` don't grow with the size.
+
 ## Local development
 
 ```bash

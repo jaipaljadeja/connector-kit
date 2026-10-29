@@ -123,6 +123,19 @@ The connector uses the `2026-09` API paths, such as
 - Searches, polls of deleted records, and full re-reads share the account's
   daily API limit with its other apps.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up HubSpot data without HubSpot
+credentials. See the Connector Kit README for the flags and the variables it
+needs.
+
+Each company has contacts, deals with line items, quotes, and splits, tickets,
+sales activity, leads, and, once a deal is won, a subscription, an order,
+invoices, payments, and an onboarding project in `custom_objects`. Properties
+use HubSpot's internal names. The account setup is written once and doesn't
+grow with the size: owners, users, teams, pipelines, properties, lists,
+products, discounts, fees, taxes, and goals.
+
 ## Local development
 
 ```bash

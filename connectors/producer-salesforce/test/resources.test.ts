@@ -4,6 +4,7 @@ import { TestClock } from "effect/testing";
 
 import type { FakeRequest, FakeSalesforce } from "./helpers";
 
+import { demo } from "../src/demo";
 import { SalesforceConnector, manifest } from "../src/index";
 import { tableSchemas } from "../src/tables";
 import { connectorLayer, describeField, makeFakeClient, objectDescribe, plain } from "./helpers";
@@ -123,6 +124,13 @@ describe("object tables", () => {
 
       expect(names).toEqual(manifest.resources.map((item) => item.name));
       expect(names).toEqual(Object.keys(tableSchemas));
+      // Object tables build a schema per call, so compare names and versions.
+      const demoTables = [...demo.setup.tables, ...demo.group.tables];
+      expect(demoTables.map((table) => table.name).toSorted()).toEqual(names.toSorted());
+      for (const table of demoTables) {
+        const resource = connector.resources.find((item) => item.name === table.name);
+        expect(table.version).toBe(resource?.version);
+      }
     }),
   );
 

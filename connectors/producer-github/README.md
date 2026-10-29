@@ -89,6 +89,16 @@ The connector pins REST API version `2026-03-10` with the
 - Polling costs about 12 requests per repository every 15 minutes, plus the
   ones above. About 250 active repositories reach GitHub's limit.
 
+## Demo data
+
+`pnpm demo --size 128MiB` writes made-up GitHub data without GitHub credentials.
+See the Connector Kit README for the flags and the variables it needs.
+
+Each change has an issue, the pull request that fixes it, comments, a review,
+commits, CI runs with jobs and check runs, and, once merged, a commit on main
+with a deploy status. Some merges ship a release. The 6 repositories don't grow
+with the size.
+
 ## Local development
 
 ```bash
