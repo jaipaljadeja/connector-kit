@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "name table keys and read customers again on webhooks",
-  "packageName": "@useairfoil/producer-shopify",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

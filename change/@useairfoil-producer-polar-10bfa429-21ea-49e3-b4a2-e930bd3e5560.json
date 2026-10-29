@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "name table keys and simplify webhooks",
-  "packageName": "@useairfoil/producer-polar",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

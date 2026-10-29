@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add linked demo data for Zendesk",
-  "packageName": "@useairfoil/producer-zendesk",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

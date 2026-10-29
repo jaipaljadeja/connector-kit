@@ -1,8 +1,23 @@
 # Change Log - @useairfoil/connector-kit
 
-<!-- This log was last generated on Mon, 24 Aug 2026 18:56:59 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 29 Oct 2026 08:35:20 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 0.6.1
+
+Thu, 29 Oct 2026 08:35:20 GMT
+
+### Patches
+
+- update to Effect v4 stable (jadejajaipal5@gmail.com)
+- add one-off connector demo mode and update Effect dependencies to 4.0.7 (jadejajaipal5@gmail.com)
+- run only the resources that have a table binding (jadejajaipal5@gmail.com)
+- connector-kit: use explicit field IDs in Iceberg schemas (jadejajaipal5@gmail.com)
+- add Metrics.retrySchedule, rename the delete column to _deleted, and rerun changes while more pages remain (jadejajaipal5@gmail.com)
+- replace publishers with iceberg native ingestor (jadejajaipal5@gmail.com)
+- name row keys with `Iceberg.identifier` and send full rows (jadejajaipal5@gmail.com)
+- add shared change feeds and include source errors in logs (jadejajaipal5@gmail.com)
 
 ## 0.6.0
 

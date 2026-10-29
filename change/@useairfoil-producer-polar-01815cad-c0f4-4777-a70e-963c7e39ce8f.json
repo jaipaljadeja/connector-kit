@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "extend the Polar producer with more resources and API versioning",
-  "packageName": "@useairfoil/producer-polar",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

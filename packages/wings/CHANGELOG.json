@@ -2,6 +2,39 @@
   "name": "@useairfoil/wings",
   "entries": [
     {
+      "date": "Thu, 29 Oct 2026 08:35:20 GMT",
+      "version": "0.4.7",
+      "tag": "@useairfoil/wings_v0.4.7",
+      "comments": {
+        "patch": [
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/wings",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "cancel active ingestion calls when their scope closes"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/wings",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "replace the client APIs with new catalog management and ingestion APIs"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/wings",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "update Effect dependencies to 4.0.7"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/wings",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "update to Effect v4 stable"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 Aug 2026 18:56:59 GMT",
       "version": "0.4.5",
       "tag": "@useairfoil/wings_v0.4.5",

@@ -2,6 +2,69 @@
   "name": "@useairfoil/producer-shopify",
   "entries": [
     {
+      "date": "Thu, 29 Oct 2026 08:35:20 GMT",
+      "version": "0.2.1",
+      "tag": "@useairfoil/producer-shopify_v0.2.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "name table keys and read customers again on webhooks"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "add linked demo data for Shopify"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "connectors: create Iceberg tables on startup and via CLI"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "extend the Shopify producer with customers, orders, and refunds"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "update the test ingestor for batch results and update Effect dependencies to 4.0.7"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "update to Effect v4 stable"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "use the iceberg native connector ingestion runtime"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "simplify retries and pagination, pin the API version, and update webhook and delete handling"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/producer-shopify",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "refresh rejected access tokens and use valid default table names"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 Aug 2026 18:56:59 GMT",
       "version": "0.2.0",
       "tag": "@useairfoil/producer-shopify_v0.2.0",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "connectors: create Iceberg tables on startup and via CLI",
-  "packageName": "@useairfoil/producer-shopify",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

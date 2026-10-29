@@ -2,6 +2,63 @@
   "name": "@useairfoil/connector-kit",
   "entries": [
     {
+      "date": "Thu, 29 Oct 2026 08:35:20 GMT",
+      "version": "0.6.1",
+      "tag": "@useairfoil/connector-kit_v0.6.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "update to Effect v4 stable"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "add one-off connector demo mode and update Effect dependencies to 4.0.7"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "run only the resources that have a table binding"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "connector-kit: use explicit field IDs in Iceberg schemas"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "add Metrics.retrySchedule, rename the delete column to _deleted, and rerun changes while more pages remain"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "replace publishers with iceberg native ingestor"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "name row keys with `Iceberg.identifier` and send full rows"
+          },
+          {
+            "author": "jadejajaipal5@gmail.com",
+            "package": "@useairfoil/connector-kit",
+            "commit": "aa906ef3b3db3a60ba2ad8b244924ac3f8a6781f",
+            "comment": "add shared change feeds and include source errors in logs"
+          }
+        ]
+      }
+    },
+    {
       "date": "Mon, 24 Aug 2026 18:56:59 GMT",
       "version": "0.6.0",
       "tag": "@useairfoil/connector-kit_v0.6.0",

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add linked demo data for Stripe",
-  "packageName": "@useairfoil/producer-stripe",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

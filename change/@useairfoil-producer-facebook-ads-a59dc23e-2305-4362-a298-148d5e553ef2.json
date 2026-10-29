@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add the Facebook Ads producer connector",
-  "packageName": "@useairfoil/producer-facebook-ads",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

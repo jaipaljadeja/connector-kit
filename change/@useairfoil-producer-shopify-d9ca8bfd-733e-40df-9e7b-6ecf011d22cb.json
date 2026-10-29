@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "refresh rejected access tokens and use valid default table names",
-  "packageName": "@useairfoil/producer-shopify",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

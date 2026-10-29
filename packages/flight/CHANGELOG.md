@@ -1,8 +1,18 @@
 # Change Log - @useairfoil/flight
 
-<!-- This log was last generated on Thu, 13 Aug 2026 17:12:03 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 29 Oct 2026 08:35:20 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 0.4.8
+
+Thu, 29 Oct 2026 08:35:20 GMT
+
+### Patches
+
+- export arrow record batches and protobuf Any values (jadejajaipal5@gmail.com)
+- update to Effect v4 stable (jadejajaipal5@gmail.com)
+- update Effect dependencies to 4.0.7 (jadejajaipal5@gmail.com)
 
 ## 0.4.6
 

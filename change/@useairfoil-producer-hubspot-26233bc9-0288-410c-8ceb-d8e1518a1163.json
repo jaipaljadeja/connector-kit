@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add the HubSpot producer connector",
-  "packageName": "@useairfoil/producer-hubspot",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

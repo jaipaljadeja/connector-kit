@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "update the test ingestor for batch results and update Effect dependencies to 4.0.7",
-  "packageName": "@useairfoil/producer-stripe",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add one-off connector demo mode and update Effect dependencies to 4.0.7",
-  "packageName": "@useairfoil/connector-kit",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

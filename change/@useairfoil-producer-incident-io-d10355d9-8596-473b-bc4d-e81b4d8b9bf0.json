@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "add linked demo data for incident.io",
-  "packageName": "@useairfoil/producer-incident-io",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}

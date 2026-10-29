@@ -1,8 +1,25 @@
 # Change Log - @useairfoil/producer-polar
 
-<!-- This log was last generated on Mon, 24 Aug 2026 18:56:59 GMT and should not be manually modified. -->
+<!-- This log was last generated on Thu, 29 Oct 2026 08:35:20 GMT and should not be manually modified. -->
 
 <!-- Start content -->
+
+## 0.3.1
+
+Thu, 29 Oct 2026 08:35:20 GMT
+
+### Patches
+
+- extend the Polar producer with more resources and API versioning (jadejajaipal5@gmail.com)
+- name table keys and simplify webhooks (jadejajaipal5@gmail.com)
+- connectors: create Iceberg tables on startup and via CLI (jadejajaipal5@gmail.com)
+- update to Effect v4 stable (jadejajaipal5@gmail.com)
+- simplify retry settings, cap 429 retries, report API errors, and update delete handling (jadejajaipal5@gmail.com)
+- fix retry metrics and use valid default table names (jadejajaipal5@gmail.com)
+- add linked demo data for Polar (jadejajaipal5@gmail.com)
+- update the test ingestor for batch results and update Effect dependencies to 4.0.7 (jadejajaipal5@gmail.com)
+- use the iceberg native connector ingestion runtime (jadejajaipal5@gmail.com)
+- update Polar VCR coverage for request query params (jadejajaipal5@gmail.com)
 
 ## 0.3.0
 

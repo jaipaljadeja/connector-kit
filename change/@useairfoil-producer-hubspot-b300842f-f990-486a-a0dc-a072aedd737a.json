@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "name table keys and simplify changes",
-  "packageName": "@useairfoil/producer-hubspot",
-  "email": "jadejajaipal5@gmail.com",
-  "dependentChangeType": "patch"
-}
