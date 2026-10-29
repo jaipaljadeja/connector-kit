@@ -1,10 +1,10 @@
 import { Effect, Option, type Schema } from "effect";
 import { Argument, CliError, Command, Flag } from "effect/cli";
 
-import { createTableFromWings } from "../catalog/table";
+import { ensureTableFromWings } from "../catalog/table";
 import { wingsUri } from "../runtime-config/config";
 
-/** Creates the table command for a connector's row schemas. */
+/** Creates the table command; existing tables must match the connector's row schemas. */
 export const makeCreateTableCommand = (schemas: Readonly<Record<string, Schema.Top>>) =>
   Command.make(
     "create-table",
@@ -36,12 +36,12 @@ export const makeCreateTableCommand = (schemas: Readonly<Record<string, Schema.T
         }
 
         const uri = yield* wingsUri;
-        yield* createTableFromWings(schema, {
+        yield* ensureTableFromWings(schema, {
           wingsUri: uri.href,
           catalogId: catalog,
           identifier: { namespace, name },
           location: Option.getOrUndefined(location),
         });
-        yield* Effect.log(`Created ${table}`);
+        yield* Effect.log(`Prepared ${table}`);
       }),
-  ).pipe(Command.withDescription("Create an Iceberg table for a connector resource"));
+  ).pipe(Command.withDescription("Create or verify an Iceberg table for a connector resource"));

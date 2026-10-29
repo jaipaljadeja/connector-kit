@@ -158,8 +158,8 @@ export const createTable = (
     return yield* verifyTable(metadata, table.schema);
   }).pipe(Effect.mapError(tableError));
 
-/** Creates a table through a Wings catalog. */
-export const createTableFromWings = (
+/** Creates a missing table through a Wings catalog and verifies its schema. */
+export const ensureTableFromWings = (
   schema: Schema.Top,
   options: WingsTableOptions,
 ): Effect.Effect<TableSchema, ConnectorError, HttpClient.HttpClient> =>
@@ -167,7 +167,7 @@ export const createTableFromWings = (
     Effect.gen(function* () {
       const manager = yield* Wings.CatalogManager.make({ baseUrl: options.wingsUri });
       const catalog = yield* manager.getIcebergCatalog(options.catalogId);
-      return yield* createTable(schema, {
+      return yield* ensureTable(schema, {
         catalog,
         identifier: options.identifier,
         location: options.location,

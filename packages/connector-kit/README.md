@@ -174,7 +174,9 @@ const Row = Schema.Struct({
 
 Hosted connectors create missing tables from these bindings. To create one
 manually, use the connector's `create-table <namespace.table> --catalog <id>`
-command. Use `--resource <name>` if the table name differs from the resource.
+command. It creates missing namespaces and tables, and accepts existing tables
+only when their schemas match. Use `--resource <name>` if the table name differs
+from the resource.
 
 Both paths preserve field IDs and check the stored schema. Set `location` in the
 binding, or pass `--location <uri>` to the command, if the catalog cannot choose
