@@ -1,7 +1,7 @@
 {
   "name": "@useairfoil/producer-shopify",
   "version": "0.2.0",
-  "repository": "useairfoil/typescript-sdk",
+  "repository": "useairfoil/connector-kit",
   "files": [
     "dist",
     "src",

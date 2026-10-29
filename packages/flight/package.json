@@ -1,7 +1,7 @@
 {
   "name": "@useairfoil/flight",
   "version": "0.4.6",
-  "repository": "useairfoil/typescript-sdk",
+  "repository": "useairfoil/connector-kit",
   "files": [
     "dist",
     "src",

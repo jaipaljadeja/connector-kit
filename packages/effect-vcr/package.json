@@ -4,7 +4,7 @@
   "keywords": [
     "effect"
   ],
-  "repository": "useairfoil/typescript-sdk",
+  "repository": "useairfoil/connector-kit",
   "files": [
     "dist",
     "src",

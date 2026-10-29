@@ -1,7 +1,7 @@
 {
   "name": "@useairfoil/producer-hubspot",
   "version": "0.0.1",
-  "repository": "useairfoil/typescript-sdk",
+  "repository": "useairfoil/connector-kit",
   "files": [
     "dist",
     "src",

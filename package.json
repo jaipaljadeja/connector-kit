@@ -1,11 +1,11 @@
 {
-  "name": "airfoil-typescript-sdk",
+  "name": "airfoil-connector-kit",
   "version": "0.0.0",
   "private": true,
   "description": "Airfoil Typescript monorepo",
   "repository": {
     "type": "git",
-    "url": "https://github.com/usearifoil/typescript-sdk.git"
+    "url": "https://github.com/usearifoil/connector-kit.git"
   },
   "workspaces": [
     "connectors/*",

@@ -1,7 +1,7 @@
 {
   "name": "@useairfoil/producer-polar",
   "version": "0.3.0",
-  "repository": "useairfoil/typescript-sdk",
+  "repository": "useairfoil/connector-kit",
   "files": [
     "dist",
     "src",
