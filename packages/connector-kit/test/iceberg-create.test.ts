@@ -17,7 +17,7 @@ const identifier = { namespace: ["default"], name: "rows" };
 const location = "s3://warehouse/default/rows";
 
 const metadata = (schema: TableSchema): TableMetadata => ({
-  "format-version": 2,
+  "format-version": 3,
   "table-uuid": "test",
   schemas: [{ ...schema, "schema-id": 0 }],
   "current-schema-id": 0,
@@ -58,6 +58,7 @@ describe("Iceberg table creation", () => {
                 : Effect.fail({ status: 404, message: "Table not found" }),
             ),
           ),
+        createNamespaceIfNotExists: () => Effect.void,
         commitTable: (_identifier: typeof identifier, request: CommitTableRequest) =>
           Ref.set(stored, metadata(schemaFrom(request))).pipe(
             Effect.andThen(Ref.update(commits, (count) => count + 1)),
@@ -68,6 +69,17 @@ describe("Iceberg table creation", () => {
       yield* ensureTable(Row, { catalog, identifier });
 
       expect(yield* Ref.get(commits)).toBe(1);
+    }),
+  );
+
+  it.effect("rejects v2 tables before opening an ingestion stream", () =>
+    Effect.gen(function* () {
+      const request = yield* Iceberg.makeCreateTableCommitRequest(Row, { location });
+      const catalog = {
+        loadTable: () => Effect.succeed({ ...metadata(schemaFrom(request)), "format-version": 2 }),
+      } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
+      const error = yield* ensureTable(Row, { catalog, identifier }).pipe(Effect.flip);
+      expect(error.message).toContain("Iceberg format v3");
     }),
   );
 
@@ -124,6 +136,7 @@ describe("Iceberg table creation", () => {
                 : Effect.succeed(created),
             ),
           ),
+        createNamespaceIfNotExists: () => Effect.void,
         commitTable: () => Effect.fail({ status: 409, message: "Table already exists" }),
       } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
 

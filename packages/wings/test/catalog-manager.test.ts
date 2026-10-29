@@ -75,6 +75,18 @@ describe("CatalogManager", () => {
           }
         `);
 
+        yield* iceberg.createNamespaceIfNotExists({ namespace: ["default"] });
+        yield* iceberg.createTable(
+          { namespace: ["default"] },
+          {
+            name: "events",
+            schema: {
+              type: "struct",
+              fields: [{ id: 1, name: "id", type: "double", required: false }],
+            },
+            properties: { "format-version": "3" },
+          },
+        );
         const ingestor = yield* manager.ingestor({
           catalog: request.id,
           namespace: ["default"],

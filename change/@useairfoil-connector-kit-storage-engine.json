@@ -1,0 +1,7 @@
+{
+  "type": "patch",
+  "comment": "Prepare missing namespaces and create and validate v3 tables for storage-engine ingestion.",
+  "packageName": "@useairfoil/connector-kit",
+  "email": "jadejajaipal5@gmail.com",
+  "dependentChangeType": "patch"
+}

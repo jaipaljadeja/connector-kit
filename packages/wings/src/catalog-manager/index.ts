@@ -30,7 +30,7 @@ export const getCatalog = (...args: CatalogManagerFnParams<"getCatalog">) =>
 export const deleteCatalog = (...args: CatalogManagerFnParams<"deleteCatalog">) =>
   CatalogManager.use((service) => service.deleteCatalog(...args));
 
-/** Gets an Effect Iceberg REST catalog configured for a Wings catalog. */
+/** Connects directly to the registered upstream catalog; the caller needs network access. */
 export const getIcebergCatalog = (
   ...args: CatalogManagerFnParams<"getIcebergCatalog">
 ): Effect.Effect<IcebergCatalog.Service, CatalogManagerError, CatalogManager> =>

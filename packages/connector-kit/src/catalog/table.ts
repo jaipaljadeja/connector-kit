@@ -107,6 +107,11 @@ const verifyTable = (
   Effect.try({
     try: () => {
       if (!Array.isArray(metadata.schemas)) throw new Error("Invalid table metadata");
+      if (metadata["format-version"] !== 3) {
+        throw new Error(
+          "Storage-engine tables must use Iceberg format v3. Migrate the table before ingesting.",
+        );
+      }
       const actual = getCurrentSchema(metadata);
       if (!actual) throw new Error("Table has no current schema");
 
@@ -182,9 +187,14 @@ export const ensureTable = (
         (error) => error.status === 404,
         () =>
           options.catalog
-            .commitTable(
-              options.identifier,
-              makeCommitRequest(table, { location: options.location }),
+            .createNamespaceIfNotExists({ namespace: options.identifier.namespace })
+            .pipe(
+              Effect.andThen(
+                options.catalog.commitTable(
+                  options.identifier,
+                  makeCommitRequest(table, { location: options.location }),
+                ),
+              ),
             )
             .pipe(
               // Another instance may have created the table. Reload and check it.

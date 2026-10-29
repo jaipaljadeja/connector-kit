@@ -14,7 +14,7 @@ Thu, 29 Oct 2026 08:35:20 GMT
 - add one-off connector demo mode and update Effect dependencies to 4.0.7 (jadejajaipal5@gmail.com)
 - run only the resources that have a table binding (jadejajaipal5@gmail.com)
 - connector-kit: use explicit field IDs in Iceberg schemas (jadejajaipal5@gmail.com)
-- add Metrics.retrySchedule, rename the delete column to _deleted, and rerun changes while more pages remain (jadejajaipal5@gmail.com)
+- add Metrics.retrySchedule, rename the delete column to \_deleted, and rerun changes while more pages remain (jadejajaipal5@gmail.com)
 - replace publishers with iceberg native ingestor (jadejajaipal5@gmail.com)
 - name row keys with `Iceberg.identifier` and send full rows (jadejajaipal5@gmail.com)
 - add shared change feeds and include source errors in logs (jadejajaipal5@gmail.com)

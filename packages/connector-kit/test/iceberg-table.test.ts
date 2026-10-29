@@ -153,7 +153,7 @@ describe("Iceberg table creation commits", () => {
             },
             {
               "action": "upgrade-format-version",
-              "format-version": 2,
+              "format-version": 3,
             },
             {
               "action": "add-schema",

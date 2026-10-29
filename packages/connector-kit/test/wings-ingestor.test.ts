@@ -32,7 +32,7 @@ const identifier = {
 };
 
 const tableMetadata = (schema?: TableSchema): TableMetadata => ({
-  "format-version": 2,
+  "format-version": 3,
   "table-uuid": "table-uuid",
   schemas: schema ? [{ ...schema, "schema-id": 0 }] : [],
   "current-schema-id": 0,

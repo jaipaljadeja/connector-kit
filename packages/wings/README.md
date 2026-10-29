@@ -27,3 +27,7 @@ const catalog = CatalogManager.getCatalog("analytics").pipe(
 
 Use `CatalogManager.ingestor(...)` inside `Effect.scoped`. The first batch
 sets the Arrow schema. Later batches on that stream must use the same schema.
+
+`getIcebergCatalog(id)` connects directly to the registered catalog URI. The
+caller needs network access to that URI. Requests use the registered `token`
+and `header.*` properties for authentication and headers.
