@@ -21,7 +21,14 @@ const metadata = (schema: TableSchema): TableMetadata => ({
   "table-uuid": "test",
   schemas: [{ ...schema, "schema-id": 0 }],
   "current-schema-id": 0,
-  "partition-specs": [],
+  "partition-specs": [
+    { "spec-id": 0, fields: [] },
+    {
+      "spec-id": 1,
+      fields: [{ "source-id": 1, "field-id": 1000, name: "id_partition", transform: "identity" }],
+    },
+  ],
+  "default-spec-id": 0,
   "sort-orders": [],
   properties: {},
 });
@@ -72,14 +79,27 @@ describe("Iceberg table creation", () => {
     }),
   );
 
-  it.effect("rejects v2 tables before opening an ingestion stream", () =>
+  it.effect("rejects unsupported table versions, partitions, and encryption before ingestion", () =>
     Effect.gen(function* () {
       const request = yield* Iceberg.makeCreateTableCommitRequest(Row, { location });
-      const catalog = {
-        loadTable: () => Effect.succeed({ ...metadata(schemaFrom(request)), "format-version": 2 }),
-      } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
-      const error = yield* ensureTable(Row, { catalog, identifier }).pipe(Effect.flip);
-      expect(error.message).toContain("Iceberg format v3");
+      const stored = metadata(schemaFrom(request));
+      const cases = [
+        { table: { ...stored, "format-version": 2 }, message: "Iceberg format v3" },
+        { table: { ...stored, "default-spec-id": 1 }, message: "must be unpartitioned" },
+        {
+          table: { ...stored, properties: { "encryption.key-id": "synthetic-key" } },
+          message: "must be unencrypted",
+        },
+      ];
+      for (const { table, message } of cases) {
+        const catalog = {
+          loadTable: () => Effect.succeed(table),
+          commitTable: () => Effect.die("Unexpected commit"),
+        } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
+        const error = yield* ensureTable(Row, { catalog, identifier }).pipe(Effect.flip);
+        expect(error.message).toContain(message);
+        expect(error.message).not.toContain("synthetic-key");
+      }
     }),
   );
 

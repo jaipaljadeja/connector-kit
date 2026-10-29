@@ -112,6 +112,16 @@ const verifyTable = (
           "Storage-engine tables must use Iceberg format v3. Migrate the table before ingesting.",
         );
       }
+      const partitionSpec = metadata["partition-specs"].find(
+        (spec) => spec["spec-id"] === metadata["default-spec-id"],
+      );
+      if (!partitionSpec) throw new Error("Table has no default partition spec");
+      if (partitionSpec.fields.length > 0) {
+        throw new Error("Storage-engine tables must be unpartitioned.");
+      }
+      if (metadata.properties?.["encryption.key-id"] !== undefined) {
+        throw new Error("Storage-engine tables must be unencrypted.");
+      }
       const actual = getCurrentSchema(metadata);
       if (!actual) throw new Error("Table has no current schema");
 

@@ -182,5 +182,6 @@ Both paths preserve field IDs and check the stored schema. Set `location` in the
 binding, or pass `--location <uri>` to the command, if the catalog cannot choose
 a location or you want to choose it yourself.
 
-Table preparation also creates missing namespaces. Tables must use Iceberg v3;
-startup rejects other versions without migrating them.
+Table preparation also creates missing namespaces. Tables must be unencrypted,
+unpartitioned Iceberg v3 tables. Preparation and startup reject unsupported tables
+without migrating them.
