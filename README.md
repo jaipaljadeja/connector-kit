@@ -1,4 +1,4 @@
-# Airfoil Connector Kit 
+# Airfoil Connector Kit
 
 This repository contains the Airfoil Connector Kit and Connectors.
 
