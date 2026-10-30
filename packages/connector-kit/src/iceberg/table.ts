@@ -461,7 +461,7 @@ export const makeCommitRequest = (
     requirements: [{ type: "assert-create" }],
     updates: [
       { action: "assign-uuid", uuid: options.uuid ?? crypto.randomUUID() },
-      { action: "upgrade-format-version", "format-version": 2 },
+      { action: "upgrade-format-version", "format-version": 3 },
       { action: "add-schema", schema: table.schema },
       { action: "set-current-schema", "schema-id": -1 },
       { action: "add-spec", spec: { "spec-id": 0, fields: [] } },

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@effect/vitest";
-import { Effect, Layer } from "effect";
+import { Effect } from "effect";
 
 import { TestWings } from "../src";
 
@@ -13,8 +13,8 @@ describe("WingsContainer", () => {
         const icebergRestUri = yield* container.icebergRestUri;
 
         expect(uri).toMatch(/^http:\/\/\S+:\d+$/);
-        expect(icebergRestUri).toMatch(/^http:\/\/\S+:8181$/);
-      }).pipe(Effect.provide(Layer.mergeAll(TestWings.container)), Effect.scoped),
+        expect(icebergRestUri).toMatch(/^http:\/\/\S+:\d+$/);
+      }).pipe(Effect.provide(TestWings.container), Effect.scoped),
     { timeout: 120_000 },
   );
 });

@@ -82,8 +82,19 @@ export const make = Effect.fnUntraced(function* (
       getCatalog(id).pipe(
         Effect.map((catalog) =>
           IcebergCatalog.make({
-            baseUrl: `${baseUrl}${catalogPath(id)}`,
+            baseUrl: catalog.rest.uri,
             warehouse: catalog.rest.warehouse,
+            fetch: (input, init) => {
+              const headers = new Headers(init?.headers);
+              for (const [key, value] of Object.entries(catalog.rest.properties ?? {})) {
+                if (key.startsWith("header.")) headers.set(key.slice(7), value);
+              }
+              const token = catalog.rest.properties?.token;
+              if (token !== undefined && !headers.has("Authorization")) {
+                headers.set("Authorization", `Bearer ${token}`);
+              }
+              return fetch(input, { ...init, headers });
+            },
           }),
         ),
       ),

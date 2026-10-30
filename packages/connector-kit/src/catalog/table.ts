@@ -107,6 +107,21 @@ const verifyTable = (
   Effect.try({
     try: () => {
       if (!Array.isArray(metadata.schemas)) throw new Error("Invalid table metadata");
+      if (metadata["format-version"] !== 3) {
+        throw new Error(
+          "Storage-engine tables must use Iceberg format v3. Migrate the table before ingesting.",
+        );
+      }
+      const partitionSpec = metadata["partition-specs"].find(
+        (spec) => spec["spec-id"] === metadata["default-spec-id"],
+      );
+      if (!partitionSpec) throw new Error("Table has no default partition spec");
+      if (partitionSpec.fields.length > 0) {
+        throw new Error("Storage-engine tables must be unpartitioned.");
+      }
+      if (metadata.properties?.["encryption.key-id"] !== undefined) {
+        throw new Error("Storage-engine tables must be unencrypted.");
+      }
       const actual = getCurrentSchema(metadata);
       if (!actual) throw new Error("Table has no current schema");
 
@@ -153,8 +168,8 @@ export const createTable = (
     return yield* verifyTable(metadata, table.schema);
   }).pipe(Effect.mapError(tableError));
 
-/** Creates a table through a Wings catalog. */
-export const createTableFromWings = (
+/** Creates a missing table through a Wings catalog and verifies its schema. */
+export const ensureTableFromWings = (
   schema: Schema.Top,
   options: WingsTableOptions,
 ): Effect.Effect<TableSchema, ConnectorError, HttpClient.HttpClient> =>
@@ -162,7 +177,7 @@ export const createTableFromWings = (
     Effect.gen(function* () {
       const manager = yield* Wings.CatalogManager.make({ baseUrl: options.wingsUri });
       const catalog = yield* manager.getIcebergCatalog(options.catalogId);
-      return yield* createTable(schema, {
+      return yield* ensureTable(schema, {
         catalog,
         identifier: options.identifier,
         location: options.location,
@@ -182,9 +197,14 @@ export const ensureTable = (
         (error) => error.status === 404,
         () =>
           options.catalog
-            .commitTable(
-              options.identifier,
-              makeCommitRequest(table, { location: options.location }),
+            .createNamespaceIfNotExists({ namespace: options.identifier.namespace })
+            .pipe(
+              Effect.andThen(
+                options.catalog.commitTable(
+                  options.identifier,
+                  makeCommitRequest(table, { location: options.location }),
+                ),
+              ),
             )
             .pipe(
               // Another instance may have created the table. Reload and check it.

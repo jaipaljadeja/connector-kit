@@ -1,16 +1,18 @@
+import { NodeServices } from "@effect/platform-node";
 import { describe, expect, it } from "@effect/vitest";
 import { CatalogManager } from "@useairfoil/wings";
 import { TestWings } from "@useairfoil/wings-testing";
-import { Effect, Schema } from "effect";
+import { ConfigProvider, Effect, Schema } from "effect";
+import { Command } from "effect/cli";
 import { FetchHttpClient } from "effect/http";
 import { getCurrentSchema } from "iceberg-js";
 
 import { Iceberg } from "../src";
-import { ensureTable } from "../src/catalog/table";
+import { makeCreateTableCommand } from "../src/connector-app";
 
 describe("Iceberg table creation commits", () => {
   it.effect(
-    "preserves explicit field and identifier IDs with and without a location",
+    "creates missing namespaces and tables through the CLI, verifies reruns, and preserves IDs",
     () =>
       Effect.gen(function* () {
         const wings = yield* TestWings.Instance;
@@ -30,7 +32,6 @@ describe("Iceberg table creation commits", () => {
         });
 
         const catalog = yield* manager.getIcebergCatalog(catalogId);
-        yield* catalog.createNamespaceIfNotExists({ namespace });
 
         const Row = Schema.Struct({
           id: Schema.String.pipe(Iceberg.field(1)),
@@ -44,8 +45,35 @@ describe("Iceberg table creation commits", () => {
           ).pipe(Iceberg.field(4)),
         }).pipe(Iceberg.identifier("id"));
         const location = "s3://default-catalog/schema_ids/events";
-        const schema = yield* ensureTable(Row, { catalog, identifier, location });
-        yield* ensureTable(Row, { catalog, identifier, location });
+        const prepare = (row: Schema.Top) =>
+          Command.runWith(makeCreateTableCommand({ source_events: row }), {
+            version: "1.0.0",
+            renderErrors: false,
+          })([
+            "schema_ids.events",
+            "--catalog",
+            catalogId,
+            "--resource",
+            "source_events",
+            "--location",
+            location,
+          ]).pipe(
+            Effect.provide(NodeServices.layer),
+            Effect.provide(ConfigProvider.layer(ConfigProvider.fromUnknown({ WINGS_URI: uri }))),
+          );
+        yield* prepare(Row);
+        const created = yield* catalog.loadTable(identifier);
+        yield* prepare(Row);
+        const reused = yield* catalog.loadTable(identifier);
+        expect(reused["table-uuid"]).toBe(created["table-uuid"]);
+        const schema = getCurrentSchema(reused);
+
+        const ChangedRow = Schema.Struct({
+          id: Schema.String.pipe(Iceberg.field(99)),
+        }).pipe(Iceberg.identifier("id"));
+        const mismatch = yield* prepare(ChangedRow).pipe(Effect.flip);
+        expect(mismatch.message).toContain("Table schema does not match");
+        expect((yield* catalog.loadTable(identifier))["table-uuid"]).toBe(created["table-uuid"]);
 
         const fields = [
           { id: 1, name: "id" },

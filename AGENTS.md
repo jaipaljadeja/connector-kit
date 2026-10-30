@@ -10,6 +10,8 @@ Read a connector's or template's own `AGENTS.md` before you change it.
 - Prefer inference and schema types. No `any`, and no casts to hide errors.
 - Keep tests small and meaningful. Use inline snapshots for row shapes.
 - Write short sentences with simple words. Only comment what is easy to miss.
+- Keep READMEs focused on purpose, installation, configuration, and usage.
+  Put contributor rules in `AGENTS.md` and investigation history in `docs/`.
 - Update docs in place. Don't rewrite them for style.
 - Check review claims against the code, docs, or real behavior before acting.
 - Give a recommendation. Say when an idea is overkill, even the user's.
@@ -95,6 +97,8 @@ from the root. `pnpm format` only checks formatting; it doesn't fix it.
 - When shared code or a public API changes, check the code that uses it.
 - Use `@effect/vitest` and the existing test setup. Some integration tests need
   Docker.
+- For `wings-testing` publication tests, register synthetic S3 credentials through
+  catalog properties and run `materializeAndCommit` before checking snapshots.
 - For docs-only changes, check the edited text, paths, and commands.
 - Test the changed artifact or runtime path, not just that it compiles.
 - Report what ran, what passed, and what was blocked or not checked. Report VCR

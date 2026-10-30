@@ -17,11 +17,18 @@ const identifier = { namespace: ["default"], name: "rows" };
 const location = "s3://warehouse/default/rows";
 
 const metadata = (schema: TableSchema): TableMetadata => ({
-  "format-version": 2,
+  "format-version": 3,
   "table-uuid": "test",
   schemas: [{ ...schema, "schema-id": 0 }],
   "current-schema-id": 0,
-  "partition-specs": [],
+  "partition-specs": [
+    { "spec-id": 0, fields: [] },
+    {
+      "spec-id": 1,
+      fields: [{ "source-id": 1, "field-id": 1000, name: "id_partition", transform: "identity" }],
+    },
+  ],
+  "default-spec-id": 0,
   "sort-orders": [],
   properties: {},
 });
@@ -58,6 +65,7 @@ describe("Iceberg table creation", () => {
                 : Effect.fail({ status: 404, message: "Table not found" }),
             ),
           ),
+        createNamespaceIfNotExists: () => Effect.void,
         commitTable: (_identifier: typeof identifier, request: CommitTableRequest) =>
           Ref.set(stored, metadata(schemaFrom(request))).pipe(
             Effect.andThen(Ref.update(commits, (count) => count + 1)),
@@ -68,6 +76,30 @@ describe("Iceberg table creation", () => {
       yield* ensureTable(Row, { catalog, identifier });
 
       expect(yield* Ref.get(commits)).toBe(1);
+    }),
+  );
+
+  it.effect("rejects unsupported table versions, partitions, and encryption before ingestion", () =>
+    Effect.gen(function* () {
+      const request = yield* Iceberg.makeCreateTableCommitRequest(Row, { location });
+      const stored = metadata(schemaFrom(request));
+      const cases = [
+        { table: { ...stored, "format-version": 2 }, message: "Iceberg format v3" },
+        { table: { ...stored, "default-spec-id": 1 }, message: "must be unpartitioned" },
+        {
+          table: { ...stored, properties: { "encryption.key-id": "synthetic-key" } },
+          message: "must be unencrypted",
+        },
+      ];
+      for (const { table, message } of cases) {
+        const catalog = {
+          loadTable: () => Effect.succeed(table),
+          commitTable: () => Effect.die("Unexpected commit"),
+        } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
+        const error = yield* ensureTable(Row, { catalog, identifier }).pipe(Effect.flip);
+        expect(error.message).toContain(message);
+        expect(error.message).not.toContain("synthetic-key");
+      }
     }),
   );
 
@@ -124,6 +156,7 @@ describe("Iceberg table creation", () => {
                 : Effect.succeed(created),
             ),
           ),
+        createNamespaceIfNotExists: () => Effect.void,
         commitTable: () => Effect.fail({ status: 409, message: "Table already exists" }),
       } as unknown as Parameters<typeof ensureTable>[1]["catalog"];
 
